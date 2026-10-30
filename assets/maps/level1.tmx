@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="62">
+ <editorsettings>
+  <export target="level1.json" format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="monochrome_tilemap_transparent_packed" tilewidth="16" tileheight="16" tilecount="400" columns="20">
+  <image source="../images/monochrome_tilemap_transparent_packed.png" width="320" height="320"/>
+ </tileset>
+ <tileset firstgid="401" name="monochrome_tilemap_packed" tilewidth="16" tileheight="16" tilecount="400" columns="20">
+  <image source="../images/monochrome_tilemap_packed.png" width="320" height="320"/>
+ </tileset>
+ <layer id="4" name="background" width="20" height="45">
+  <data encoding="csv">
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
+779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779
+</data>
+ </layer>
+ <layer id="1" name="ground" width="20" height="45">
+  <data encoding="csv">
+196,197,197,197,197,197,197,197,197,197,197,197,197,197,197,197,197,197,197,198,
+216,220,237,237,237,237,237,237,237,237,237,237,237,237,237,237,237,237,240,218,
+216,218,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,228,216,218,
+216,218,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,250,216,218,
+216,218,0,0,0,0,0,196,197,197,197,197,198,0,0,0,0,248,216,218,
+216,218,0,0,0,0,0,236,237,237,237,237,238,0,0,0,0,250,216,218,
+216,218,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,268,216,218,
+216,218,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,88,89,89,89,90,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,108,0,109,109,110,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,108,109,109,109,110,0,45,46,46,46,47,0,0,0,0,0,216,218,
+216,218,108,109,109,0,110,0,0,0,0,0,0,0,0,0,0,228,216,218,
+216,218,128,129,129,129,130,0,0,0,0,0,0,0,0,0,0,250,216,218,
+216,218,0,188,209,0,0,0,0,0,0,0,0,0,228,269,229,270,216,218,
+216,218,0,0,209,0,0,0,0,0,0,0,0,0,268,269,229,229,216,218,
+216,218,0,0,209,170,149,169,149,150,0,0,0,0,0,0,0,0,216,218,
+216,218,0,188,209,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,209,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,209,0,0,0,0,0,0,0,0,181,182,202,182,183,216,218,
+216,218,148,168,209,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,209,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,209,190,169,149,150,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,209,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,209,0,0,0,0,0,0,0,228,196,197,197,197,197,216,218,
+216,218,0,188,209,0,0,0,0,0,0,0,250,216,0,217,0,0,216,218,
+216,218,0,0,209,190,0,0,0,0,0,0,268,236,237,237,237,237,216,218,
+216,218,0,0,209,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,209,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,197,197,197,197,197,198,230,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,0,217,0,218,250,0,0,0,0,0,0,0,0,0,216,218,
+216,218,237,237,237,237,237,238,270,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,216,218,
+216,218,0,0,0,0,0,0,0,0,0,0,0,0,88,89,90,0,216,218,
+216,218,0,0,0,0,0,0,0,0,0,0,0,0,108,0,110,0,216,218,
+216,218,230,0,0,0,0,0,0,0,0,0,0,0,128,129,130,0,216,218,
+216,218,250,0,0,0,0,0,0,0,0,0,0,0,0,189,0,0,216,218,
+216,218,248,0,0,0,0,0,0,0,0,0,0,0,0,189,170,169,216,218,
+216,218,248,0,0,181,182,202,182,202,182,183,0,0,0,189,0,0,216,218,
+216,218,248,0,0,0,0,0,0,0,0,0,0,0,188,189,0,0,216,218,
+216,218,250,0,0,0,0,0,0,0,0,0,0,0,0,189,0,0,216,218,
+216,218,268,269,229,229,269,230,0,0,0,0,0,0,0,209,0,0,216,218,
+216,200,197,197,197,197,197,197,197,197,197,197,197,197,197,197,197,197,260,218,
+236,237,237,237,237,237,237,237,237,237,237,237,237,237,237,237,237,237,237,238
+</data>
+ </layer>
+ <layer id="2" name="decoration" width="20" height="45">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,39,0,17,0,19,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,25,26,27,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,20,20,0,40,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,20,40,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,40,0,0,0,0,0,0,0,20,0,20,0,0,0,
+0,0,40,20,0,0,0,0,0,0,0,0,0,0,20,0,40,0,0,0,
+0,0,0,20,0,0,0,0,0,0,0,0,0,0,40,0,0,0,0,0,
+0,0,0,40,0,0,20,0,40,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,40,0,0,0,0,0,0,39,17,0,19,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,40,0,40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,40,20,0,40,20,0,0,
+0,0,0,39,0,39,0,19,0,0,0,0,0,0,40,0,0,20,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,40,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,20,0,40,20,20,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,40,0,0,20,40,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,20,0,0,
+0,0,0,0,0,201,20,0,40,0,20,0,0,0,0,0,20,40,0,0,
+0,0,0,0,0,0,40,0,0,0,20,0,0,0,20,0,20,0,0,0,
+0,0,0,0,0,0,0,0,0,0,40,0,0,0,40,0,40,0,0,0,
+0,0,39,38,19,0,19,0,17,0,14,39,39,18,39,0,39,17,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="5" name="foreground" width="20" height="45">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,201,0,222,0,203,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,201,0,222,0,203,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,201,0,222,0,203,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,221,0,222,0,223,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,208,0,210,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,201,0,222,0,222,0,203,0,0,0,0,0,0,0,0,
+0,0,0,0,0,201,0,222,0,222,0,203,0,0,0,0,0,0,0,0,
+0,0,0,0,0,221,0,222,0,222,0,223,0,0,208,0,210,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="8" name="triggers">
+  <object id="8" name="goal" type="goal" gid="390" x="144" y="96" width="16" height="16"/>
+  <object id="9" name="key" type="key" gid="97" x="96" y="368" width="16" height="16"/>
+  <object id="20" name="gem" type="gem" gid="103" x="272" y="608" width="16" height="16">
+   <properties>
+    <property name="value" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="21" name="gem" type="gem" gid="103" x="272" y="64" width="16" height="16">
+   <properties>
+    <property name="value" type="int" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="lights">
+  <object id="11" name="torch" type="light" gid="249" x="176" y="624" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="12" name="torch" type="light" gid="249" x="96" y="480" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="13" name="torch" type="light" gid="249" x="272" y="320" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="14" name="torch" type="light" gid="249" x="160" y="192" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="16" name="torch" type="light" gid="249" x="208" y="320" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="17" name="torch" type="light" gid="249" x="176" y="96" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="18" name="torch" type="light" gid="249" x="112" y="96" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="19" name="torch" type="light" gid="249" x="80" y="624" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="30" name="shrub" type="light" gid="54" x="272" y="688" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff942192"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="35"/>
+   </properties>
+  </object>
+  <object id="32" name="mushroom" type="light" gid="55" x="32" y="480" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff0433ff"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="40"/>
+   </properties>
+  </object>
+  <object id="33" name="leaf" type="light" gid="38" x="48" y="416" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="30"/>
+   </properties>
+  </object>
+  <object id="34" name="leaf" type="light" gid="38" x="80" y="432" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="25"/>
+   </properties>
+  </object>
+  <object id="35" name="leaf" type="light" gid="38" x="80" y="368" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="25"/>
+   </properties>
+  </object>
+  <object id="36" name="leaf" type="light" gid="38" x="32" y="336" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="none"/>
+    <property name="radius" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="37" name="leaf" type="light" gid="38" x="32" y="336" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="25"/>
+   </properties>
+  </object>
+  <object id="38" name="leaf" type="light" gid="38" x="128" y="368" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="25"/>
+   </properties>
+  </object>
+  <object id="39" name="leaf" type="light" gid="38" x="224" y="640" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="25"/>
+   </properties>
+  </object>
+  <object id="40" name="leaf" type="light" gid="38" x="256" y="608" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="30"/>
+   </properties>
+  </object>
+  <object id="41" name="leaf" type="light" gid="38" x="48" y="288" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="25"/>
+   </properties>
+  </object>
+  <object id="42" name="leaf" type="light" gid="38" x="96" y="272" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="25"/>
+   </properties>
+  </object>
+  <object id="43" name="leaf" type="light" gid="38" x="144" y="272" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff00f900"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="25"/>
+   </properties>
+  </object>
+  <object id="44" name="fruit" type="light" gid="109" x="48" y="192" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff40ff"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="75"/>
+   </properties>
+  </object>
+  <object id="45" name="fruit" type="light" gid="109" x="80" y="224" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff40ff"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="75"/>
+   </properties>
+  </object>
+  <object id="46" name="fruit" type="light" gid="109" x="240" y="576" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffff33ff"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="75"/>
+   </properties>
+  </object>
+  <object id="47" name="berry" type="light" gid="40" x="96" y="336" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="48" name="berry" type="light" gid="40" x="144" y="288" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="49" name="berry" type="light" gid="40" x="96" y="400" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="50" name="berry" type="light" gid="40" x="32" y="352" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="51" name="berry" type="light" gid="40" x="48" y="448" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="52" name="berry" type="light" gid="40" x="96" y="560" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="53" name="berry" type="light" gid="40" x="32" y="560" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="54" name="berry" type="light" gid="40" x="80" y="592" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="55" name="berry" type="light" gid="40" x="272" y="640" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="56" name="berry" type="light" gid="40" x="224" y="672" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="57" name="mushroom" type="light" gid="55" x="272" y="400" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ff0433ff"/>
+    <property name="effect" value="pulse"/>
+    <property name="radius" type="int" value="30"/>
+   </properties>
+  </object>
+  <object id="59" name="berry" type="light" gid="40" x="272" y="512" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="60" name="berry" type="light" gid="40" x="256" y="464" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="61" name="berry" type="light" gid="40" x="224" y="480" width="16" height="16">
+   <properties>
+    <property name="color" type="color" value="#ffffbd00"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="20"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="spawns">
+  <object id="7" name="player" type="player" x="64" y="672">
+   <point/>
+  </object>
+ </objectgroup>
+</map>
