@@ -10,6 +10,7 @@ const MOVE_SPEED = 100;   // pixels per second, left/right
 const JUMP_SPEED = 360;   // initial upward speed when jumping
 const AIR_JUMPS = 1;               // extra jumps allowed in mid-air (1 = double jump, 2 = triple...)
 const AIR_JUMP_SPEED = 300;        // mid-air jumps are a bit weaker than the first jump
+const COYOTE_TIME = 100;    // Time in milliseconds to allow player jump without expending air jump
 
 // Lighting tuning
 const AMBIENT_COLOR = 0x101018;   // how dark the level is where no light reaches (0x000000 = pitch black)
@@ -89,6 +90,8 @@ export class Start extends Phaser.Scene {
         this.keys = this.input.keyboard.addKeys('W,A,D,SPACE');
 
         this.airJumpsLeft = AIR_JUMPS;   // refilled every time we land
+        this.player.lastGrounded = 0;  // last recorded time player was on the ground (for coyote time)
+        this.player.grounded = true;    // player is on the ground or was on the ground within coyote time window
     }
 
     update(time) {
@@ -120,11 +123,16 @@ export class Start extends Phaser.Scene {
         const onGround = this.player.body.blocked.down;
         if (onGround) {
             this.airJumpsLeft = AIR_JUMPS;            // landed: refill air jumps
+            this.player.lastGrounded = time;
+            this.player.grounded = true;
+        } else if (this.player.lastGrounded + COYOTE_TIME < time) {
+            this.player.grounded = false;
         }
 
         if (jump) {
-            if (onGround) {
+            if (this.player.grounded) {
                 this.player.setVelocityY(-JUMP_SPEED);           // normal jump
+                this.player.grounded = false;
             } else if (this.airJumpsLeft > 0) {
                 this.player.setVelocityY(-AIR_JUMP_SPEED);       // double jump
                 this.airJumpsLeft--;
