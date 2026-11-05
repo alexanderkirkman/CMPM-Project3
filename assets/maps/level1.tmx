@@ -5,6 +5,11 @@
  </editorsettings>
  <tileset firstgid="1" name="monochrome_tilemap_transparent_packed" tilewidth="16" tileheight="16" tilecount="400" columns="20">
   <image source="../images/monochrome_tilemap_transparent_packed.png" width="320" height="320"/>
+  <tile id="248">
+   <properties>
+    <property name="active" type="bool" value="false"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="401" name="monochrome_tilemap_packed" tilewidth="16" tileheight="16" tilecount="400" columns="20">
   <image source="../images/monochrome_tilemap_packed.png" width="320" height="320"/>
@@ -222,6 +227,7 @@
  <objectgroup id="7" name="lights">
   <object id="11" name="torch" type="light" gid="249" x="176" y="624" width="16" height="16">
    <properties>
+    <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
     <property name="effect" value="flicker"/>
     <property name="radius" type="int" value="50"/>
@@ -229,6 +235,7 @@
   </object>
   <object id="12" name="torch" type="light" gid="249" x="96" y="480" width="16" height="16">
    <properties>
+    <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
     <property name="effect" value="flicker"/>
     <property name="radius" type="int" value="50"/>
@@ -236,6 +243,7 @@
   </object>
   <object id="13" name="torch" type="light" gid="249" x="272" y="320" width="16" height="16">
    <properties>
+    <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
     <property name="effect" value="flicker"/>
     <property name="radius" type="int" value="50"/>
@@ -243,6 +251,7 @@
   </object>
   <object id="14" name="torch" type="light" gid="249" x="160" y="192" width="16" height="16">
    <properties>
+    <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
     <property name="effect" value="flicker"/>
     <property name="radius" type="int" value="50"/>
@@ -250,6 +259,7 @@
   </object>
   <object id="16" name="torch" type="light" gid="249" x="208" y="320" width="16" height="16">
    <properties>
+    <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
     <property name="effect" value="flicker"/>
     <property name="radius" type="int" value="50"/>
@@ -257,6 +267,7 @@
   </object>
   <object id="17" name="torch" type="light" gid="249" x="176" y="96" width="16" height="16">
    <properties>
+    <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
     <property name="effect" value="flicker"/>
     <property name="radius" type="int" value="50"/>
@@ -264,6 +275,7 @@
   </object>
   <object id="18" name="torch" type="light" gid="249" x="112" y="96" width="16" height="16">
    <properties>
+    <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
     <property name="effect" value="flicker"/>
     <property name="radius" type="int" value="50"/>
@@ -271,6 +283,7 @@
   </object>
   <object id="19" name="torch" type="light" gid="249" x="80" y="624" width="16" height="16">
    <properties>
+    <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
     <property name="effect" value="flicker"/>
     <property name="radius" type="int" value="50"/>

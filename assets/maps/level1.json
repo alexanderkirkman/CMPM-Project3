@@ -314,6 +314,11 @@
                  "opacity":1,
                  "properties":[
                         {
+                         "name":"active",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"color",
                          "type":"color",
                          "value":"#ffff8c32"
@@ -342,6 +347,11 @@
                  "name":"torch",
                  "opacity":1,
                  "properties":[
+                        {
+                         "name":"active",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"color",
                          "type":"color",
@@ -372,6 +382,11 @@
                  "opacity":1,
                  "properties":[
                         {
+                         "name":"active",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"color",
                          "type":"color",
                          "value":"#ffff8c32"
@@ -400,6 +415,11 @@
                  "name":"torch",
                  "opacity":1,
                  "properties":[
+                        {
+                         "name":"active",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"color",
                          "type":"color",
@@ -430,6 +450,11 @@
                  "opacity":1,
                  "properties":[
                         {
+                         "name":"active",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"color",
                          "type":"color",
                          "value":"#ffff8c32"
@@ -458,6 +483,11 @@
                  "name":"torch",
                  "opacity":1,
                  "properties":[
+                        {
+                         "name":"active",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"color",
                          "type":"color",
@@ -488,6 +518,11 @@
                  "opacity":1,
                  "properties":[
                         {
+                         "name":"active",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
                          "name":"color",
                          "type":"color",
                          "value":"#ffff8c32"
@@ -516,6 +551,11 @@
                  "name":"torch",
                  "opacity":1,
                  "properties":[
+                        {
+                         "name":"active",
+                         "type":"bool",
+                         "value":false
+                        }, 
                         {
                          "name":"color",
                          "type":"color",
@@ -1457,6 +1497,16 @@
          "spacing":0,
          "tilecount":400,
          "tileheight":16,
+         "tiles":[
+                {
+                 "id":248,
+                 "properties":[
+                        {
+                         "name":"active",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }],
          "tilewidth":16
         }, 
         {

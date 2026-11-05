@@ -71,6 +71,7 @@ export class LightSystem {
         const intensity = getProp(obj, 'intensity') ?? 1.0;
         const effect = getProp(obj, 'effect') ?? 'flicker';
         const speedProp = getProp(obj, 'speed') ?? 1.0;
+        // const object = obj;
 
         return {
             sprite,
@@ -83,6 +84,7 @@ export class LightSystem {
             seed: Math.random() * 1000,
             speed: speedProp * Phaser.Math.FloatBetween(1 - SPEED_VARIATION, 1 + SPEED_VARIATION),
             light: this.scene.lights.addLight(x, y, radius, color, intensity),
+            object: obj
         };
     }
 
@@ -96,6 +98,11 @@ export class LightSystem {
                 this.updatePulse(l, seconds);
             }
             // 'none' (or anything else): leave it steady
+
+            // handle inactive torches
+            if (getProp(l.object, 'active') == false) {
+                l.light.intensity = 0;   
+            }
         }
     }
 
