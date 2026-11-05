@@ -72,6 +72,7 @@ export class Start extends Phaser.Scene {
         map.createLayer('foreground', tilesets).setPipeline('PixelLight');
 
         // ---- Lighting ----
+        this.torchGroup = this.add.group("torchGroup");     // track torches so they can be turned on
         this.lights.enable().setAmbientColor(AMBIENT_COLOR);
         this.playerGlow = this.lights.addLight(spawn.x, spawn.y,
             PLAYER_GLOW.radius, PLAYER_GLOW.color, PLAYER_GLOW.intensity);
@@ -138,5 +139,13 @@ export class Start extends Phaser.Scene {
                 this.airJumpsLeft--;
             }
         }
+
+        // activate torches on collision
+        this.physics.world.overlap(this.player, this.torchGroup, (p,t) => {
+            if (t.data.values?.active == false) {
+                t.data.values.active = true;
+                // console.log(t);
+            }
+        });
     }
 }

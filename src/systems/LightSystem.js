@@ -59,6 +59,16 @@ export class LightSystem {
             x = obj.x + obj.width / 2;
             y = obj.y - obj.height / 2;
             sprite = this.scene.add.sprite(x, y, tileset.image.key, frame);
+            if (obj.name == "torch") {
+                this.scene.physics.add.existing(sprite);    // add to physics so overlap w/ player can be tracked
+                // prevent torches from being affected by gravity
+                sprite.body.immovable = true;
+                sprite.body.maxVelocity.x = 0;
+                sprite.body.maxVelocity.y = 0;
+
+                sprite.setData({active: getProp(obj, 'active')}); // set active bool equal to default from Tiled
+                this.scene.torchGroup.add(sprite);
+            }
             sprite.setPipeline('PixelLight');
         } else {
             // Point (width/height 0) or rectangle: use its center, no sprite.
@@ -71,7 +81,6 @@ export class LightSystem {
         const intensity = getProp(obj, 'intensity') ?? 1.0;
         const effect = getProp(obj, 'effect') ?? 'flicker';
         const speedProp = getProp(obj, 'speed') ?? 1.0;
-        // const object = obj;
 
         return {
             sprite,
@@ -84,7 +93,6 @@ export class LightSystem {
             seed: Math.random() * 1000,
             speed: speedProp * Phaser.Math.FloatBetween(1 - SPEED_VARIATION, 1 + SPEED_VARIATION),
             light: this.scene.lights.addLight(x, y, radius, color, intensity),
-            object: obj
         };
     }
 
@@ -100,7 +108,7 @@ export class LightSystem {
             // 'none' (or anything else): leave it steady
 
             // handle inactive torches
-            if (getProp(l.object, 'active') == false) {
+            if (l.sprite.data?.values?.active == false) {
                 l.light.intensity = 0;   
             }
         }
