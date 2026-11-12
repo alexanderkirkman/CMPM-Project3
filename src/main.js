@@ -1,4 +1,5 @@
 import { Start } from './scenes/Start.js';
+import { Menu } from './scenes/MainMenu.js';
 import { PixelLightPipeline } from './pipelines/PixelLightPipeline.js';
 
 const config = {
@@ -19,7 +20,7 @@ const config = {
         arcade: { gravity: { y: 800 }, debug: false },
     },
     scene: [
-        Start,
+        Menu, Start,
     ],
     scale: {
         mode: Phaser.Scale.FIT,

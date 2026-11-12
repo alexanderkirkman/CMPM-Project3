@@ -28,6 +28,11 @@ export class Start extends Phaser.Scene {
         super('Start');
     }
 
+    init(data) {
+        this.mapPath = data.map ?? 'assets/maps/level1.json';
+
+    }
+
     preload() {
         // Loading the sheets as spritesheets (cut into 16x16 frames) lets us use a single
         // tile as a sprite (the player), and the tilemap can still use them too.
@@ -36,12 +41,12 @@ export class Start extends Phaser.Scene {
         this.load.spritesheet('tiles_solid', 'assets/images/monochrome_tilemap_packed.png',
             { frameWidth: 16, frameHeight: 16 });
 
-        this.load.tilemapTiledJSON('level1', 'assets/maps/level1.json');
+        this.load.tilemapTiledJSON('level', this.mapPath);
     }
 
     create() {
         // ---- 1. Build the map ----
-        const map = this.make.tilemap({ key: 'level1' });
+        const map = this.make.tilemap({ key: 'level' });
 
         // tileset name in Tiled  ->  key we loaded above
         const tilesets = [
@@ -144,8 +149,19 @@ export class Start extends Phaser.Scene {
         this.physics.world.overlap(this.player, this.torchGroup, (p,t) => {
             if (t.data.values?.active == false) {
                 t.data.values.active = true;
-                // console.log(t);
+                if (this.allTorchesLit()) {
+                    // TODO: reveal key
+                }
             }
         });
+    }
+
+    allTorchesLit() {
+        for (const t of this.torchGroup.getChildren()) {
+            if (t.data.values.active == false) {
+                return false;   // if any torch not lit, return false
+            }
+        }
+        return true;
     }
 }
