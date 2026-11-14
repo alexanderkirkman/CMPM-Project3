@@ -16,7 +16,7 @@
 //                       "none"    = steady light
 //   speed     (float)   speed multiplier for the effect   -> default 1.0 (2 = twice as fast)
 //
-// Requires: scene.lights.enable() has been called (see Start.js).
+// Requires: scene.lights.enable() has been called (see Level.js).
 
 // ---- Flicker ("fire") tuning ----
 const FLICKER_SPEED = 2.5;    // how fast the flame changes (higher = more frantic)
@@ -59,16 +59,6 @@ export class LightSystem {
             x = obj.x + obj.width / 2;
             y = obj.y - obj.height / 2;
             sprite = this.scene.add.sprite(x, y, tileset.image.key, frame);
-            if (obj.name == "torch") {
-                this.scene.physics.add.existing(sprite);    // add to physics so overlap w/ player can be tracked
-                // prevent torches from being affected by gravity
-                sprite.body.immovable = true;
-                sprite.body.maxVelocity.x = 0;
-                sprite.body.maxVelocity.y = 0;
-
-                sprite.setData({active: getProp(obj, 'active')}); // set active bool equal to default from Tiled
-                this.scene.torchGroup.add(sprite);
-            }
             sprite.setPipeline('PixelLight');
         } else {
             // Point (width/height 0) or rectangle: use its center, no sprite.
@@ -83,7 +73,9 @@ export class LightSystem {
         const speedProp = getProp(obj, 'speed') ?? 1.0;
 
         return {
+            obj,          // the Tiled object, so other code (like Torch) can read its name/properties
             sprite,
+            on: true,     // set to false to keep this light dark
             effect,
             baseX: x,
             baseY: y,
@@ -107,9 +99,8 @@ export class LightSystem {
             }
             // 'none' (or anything else): leave it steady
 
-            // handle inactive torches
-            if (l.sprite.data?.values?.active == false) {
-                l.light.intensity = 0;   
+            if (!l.on) {
+                l.light.intensity = 0;
             }
         }
     }
@@ -159,7 +150,7 @@ function fireNoise(t, seed) {
 // ---- Tiled helpers ----
 
 // Tiled stores custom properties as [{ name, type, value }, ...]
-function getProp(obj, name) {
+export function getProp(obj, name) {
     return obj.properties?.find(p => p.name === name)?.value;
 }
 
