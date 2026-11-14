@@ -1,5 +1,6 @@
 import { Menu } from './scenes/MainMenu.js';
 import { LEVELS } from './levels.js';
+import { HUD } from './scenes/HUD.js';
 import { PixelLightPipeline } from './pipelines/PixelLightPipeline.js';
 
 const config = {
@@ -19,7 +20,8 @@ const config = {
         default: 'arcade',
         arcade: { gravity: { y: 800 }, debug: false },
     },
-    scene: [Menu, ...LEVELS.map(level => level.scene)],
+    // HUD goes last so it draws on top of the levels
+    scene: [Menu, ...LEVELS.map(level => level.scene), HUD],
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
