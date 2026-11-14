@@ -26,13 +26,23 @@ You get one extra jump in the air (double jump). It refills when you land.
 index.html                  loads phaser.js and src/main.js
 phaser.js                   Phaser 3.90.0
 src/main.js                 game config (size, physics, registers the light shader)
-src/scenes/Start.js         the only scene right now: loads the map, player, camera, controls
+src/config.js               tuning numbers: player movement, jumps, ambient darkness, player glow
+src/levels.js               list of levels; the menu and main.js both read it
+src/scenes/MainMenu.js      level select menu
+src/scenes/Level.js         base level scene: loads the map, player, lights, camera, controls
+src/scenes/Level1.js        level 1 (just picks its map; add level-specific stuff here)
+src/scenes/Level2.js        level 2
+src/objects/Player.js       the player: movement, jump, coyote time, double jump
+src/objects/Torch.js        torches: light up on touch, smoke puff, allTorchesLit()
 src/systems/LightSystem.js  turns objects on the "lights" layer into lights
 src/pipelines/PixelLightPipeline.js   the pixel-art lighting shader
 assets/images/              the two tilesheets (16x16 tiles)
-assets/maps/level1.tmx      the Tiled file you edit
-assets/maps/level1.json     the export the game actually loads
+assets/particles/           particle images in use (copied from kenney_particle-pack)
+assets/maps/levelN.tmx      the Tiled files you edit
+assets/maps/levelN.json     the exports the game actually loads
 ```
+
+To add a level: make `assets/maps/level3.json`, copy `Level2.js` to `Level3.js` (change the names to `Level3` / `level3`), and add one line to `src/levels.js`.
 
 ## Editing levels in Tiled
 
@@ -41,8 +51,8 @@ Open `assets/maps/level1.tmx` in Tiled and edit that. The game never reads the .
 A few rules:
 
 - Tilesets have to be embedded in the map, not saved as separate .tsx files. Phaser can't load external tilesets. Both of ours are embedded already.
-- Layer names are case-sensitive and have to match what `Start.js` asks for. Renaming `ground` to `Ground` will break the game.
-- Tileset names in Tiled (`monochrome_tilemap_transparent_packed` and `monochrome_tilemap_packed`) also have to match the names in `Start.js`.
+- Layer names are case-sensitive and have to match what `Level.js` asks for. Renaming `ground` to `Ground` will break the game.
+- Tileset names in Tiled (`monochrome_tilemap_transparent_packed` and `monochrome_tilemap_packed`) also have to match the names in `Level.js`.
 
 The map is 20x45 tiles at 16px, so 320x720 pixels.
 
@@ -83,7 +93,7 @@ Anything that should be affected by lighting needs `.setPipeline('PixelLight')`.
 
 Constants are at the top of each file with comments:
 
-- `src/scenes/Start.js`: movement and jump speeds, how many air jumps, ambient darkness, the player's glow.
+- `src/config.js`: movement and jump speeds, how many air jumps, coyote time, ambient darkness, the player's glow.
 - `src/systems/LightSystem.js`: how the flicker and pulse effects behave.
 - `src/pipelines/PixelLightPipeline.js`: how the light looks (number of brightness steps, dithering, falloff, the white-hot center).
 - `src/main.js`: game resolution, gravity, `maxLights`.
