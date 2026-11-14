@@ -42,6 +42,9 @@ export class Start extends Phaser.Scene {
             { frameWidth: 16, frameHeight: 16 });
 
         this.load.tilemapTiledJSON('level', this.mapPath);
+
+        // particles
+        this.load.image("smoke10", "assets/particles/smoke_10.png");
     }
 
     create() {
@@ -149,6 +152,21 @@ export class Start extends Phaser.Scene {
         this.physics.world.overlap(this.player, this.torchGroup, (p,t) => {
             if (t.data.values?.active == false) {
                 t.data.values.active = true;
+                
+                // particle effect to indicate torch being lit
+                this.particles = this.add.particles(0, 0, 'smoke10', {
+                    scale: { start: 0.01, end: 0.02, random: true},
+                    angle: { min: 250, max: 290},
+                    x: t.x,
+                    y: t.y,
+                    gravityY: -125,
+                    speed: 50,
+                    // color: [0xFF8c32, 0xFFFFFF],
+                    duration: 200,
+                    lifespan: { min: 150, max: 250}
+                });
+                this.particles.setPipeline('PixelLight');
+
                 if (this.allTorchesLit()) {
                     // TODO: reveal key
                 }
