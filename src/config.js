@@ -4,6 +4,7 @@
 // In Tiled, click the character tile in the Tilesets panel; the "ID" shown in the
 // Properties panel is this number (for the first tileset, ID = frame index).
 export const PLAYER_FRAME = 240;
+export const GEM_FRAME = 102;   // gem tile, used for the gem counter icon (Tiled ID 102)
 
 export const MOVE_SPEED = 100;      // pixels per second, left/right
 export const JUMP_SPEED = 360;      // initial upward speed when jumping
