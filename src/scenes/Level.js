@@ -97,7 +97,7 @@ export class Level extends Phaser.Scene {
         // Scale.FIT stretches the whole canvas up to the window with chunky pixels.
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-        this.cameras.main.startFollow(this.player, true, 0.1, 0.1); // 0.1 = smooth follow
+        this.cameras.main.startFollow(this.player, true, 0.1, 1); // 0.1, 1 = smooth follow
 
         // ---- 5. Controls ----
         this.cursors = this.input.keyboard.createCursorKeys();

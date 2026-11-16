@@ -12,6 +12,16 @@ export const AIR_JUMPS = 1;         // extra jumps allowed in mid-air (1 = doubl
 export const AIR_JUMP_SPEED = 300;  // mid-air jumps are a bit weaker than the first jump
 export const COYOTE_TIME = 100;     // ms after leaving a ledge where a jump still counts as a ground jump
 
+// Player animations (frames from tiles_transparent; these face right, flipped for left).
+// repeat: true loops it, false plays once and holds the last frame.
+// Enemies can get their own object in the same shape.
+export const PLAYER_ANIMS = {
+    idle: { frames: [240],      frameRate: 1, repeat: false },
+    run:  { frames: [242, 243], frameRate: 8, repeat: true },
+    jump: { frames: [244],      frameRate: 1, repeat: false },
+    fall: { frames: [245],      frameRate: 1, repeat: false },
+};
+
 // Lighting
 export const AMBIENT_COLOR = 0x101018;   // how dark the level is where no light reaches (0x000000 = pitch black)
 // Player light. Other nice colors: 0xb79cff (soft lavender), 0x7fffd4 (aquamarine)

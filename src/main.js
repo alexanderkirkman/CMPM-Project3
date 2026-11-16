@@ -18,7 +18,7 @@ const config = {
     // The first scene in the list runs first: the Menu, which starts the chosen level.
     physics: {
         default: 'arcade',
-        arcade: { gravity: { y: 800 }, debug: false },
+        arcade: { gravity: { y: 800 }, fps: 120, debug: false },
     },
     // HUD goes last so it draws on top of the levels
     scene: [Menu, ...LEVELS.map(level => level.scene), HUD],
