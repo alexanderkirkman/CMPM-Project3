@@ -3,7 +3,9 @@ import { LightSystem } from '../systems/LightSystem.js';
 import { Player } from '../objects/Player.js';
 import { Torch, allTorchesLit } from '../objects/Torch.js';
 import { Gem } from '../objects/Gem.js';
+import { allKeysCollected, Key, revealAllKeys } from '../objects/Key.js';
 import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE } from '../config.js';
+import { Goal } from '../objects/Goal.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
 // and map name; they can override create()/update() to add their own mechanics.
@@ -74,6 +76,14 @@ export class Level extends Phaser.Scene {
         this.gems = triggers
             .filter(obj => obj.name === 'gem')
             .map(obj => new Gem(this, map, obj, this.player));
+        // ---- Keys (Objects named "key" on the 'triggers' layer) ----
+        this.key = triggers
+            .filter(obj => obj.name === 'key')
+            .map(obj => new Key(this, map, obj, this.player));
+        // ---- Goal (Technically supports multiple goals, if alternate level endings are desired) ----
+        this.goal = triggers
+            .filter(obj => obj.name === 'goal')
+            .map(obj => new Goal(this, map, obj, this.player));
 
         // ---- HUD ----
         // The HUD scene draws on top and reads values from the registry
@@ -97,13 +107,26 @@ export class Level extends Phaser.Scene {
     // Called by a Torch when the player lights it
     onTorchLit() {
         if (allTorchesLit(this.torches)) {
-            // TODO: reveal key
+            revealAllKeys(this.key);
         }
     }
 
     // Called by a Gem when the player picks it up
     addGems(amount) {
         this.registry.inc('gems', amount);   // the HUD updates itself from this
+    }
+
+    // Called by Goal on when player touches the goal
+    onGoalContact(goal){
+        if(allKeysCollected(this.key)) {
+            // Win
+            // TODO: indicate that level is complete
+            console.log("win");
+            goal.disableBody(true, true); // prevent multiple triggers
+        } else {
+            //  TODO: indicate that the key needs to be collected first
+            // maybe play a locked door sound?
+        }
     }
 
     update(time) {
