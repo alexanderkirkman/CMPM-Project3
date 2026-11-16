@@ -6,6 +6,7 @@ import { Gem } from '../objects/Gem.js';
 import { allKeysCollected, Key, revealAllKeys } from '../objects/Key.js';
 import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE } from '../config.js';
 import { Goal } from '../objects/Goal.js';
+import { LEVELS } from '../levels.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
 // and map name; they can override create()/update() to add their own mechanics.
@@ -85,9 +86,12 @@ export class Level extends Phaser.Scene {
             .filter(obj => obj.name === 'goal')
             .map(obj => new Goal(this, map, obj, this.player));
 
+        // Run values (gems, see run.js) live in the registry and carry over between levels.
+        // Level values (like the keys you're holding) live on the level and start over in
+        // create() each time, since this.key etc. are made fresh above.
+
         // ---- HUD ----
         // The HUD scene draws on top and reads values from the registry
-        this.registry.set('gems', 0);
         this.scene.launch('HUD');
         this.events.once('shutdown', () => this.scene.stop('HUD'));
 
@@ -121,10 +125,13 @@ export class Level extends Phaser.Scene {
     // Called by Goal on when player touches the goal
     onGoalContact(goal){
         if(allKeysCollected(this.key)) {
-            // Win
-            // TODO: indicate that level is complete
-            console.log("win");
             goal.disableBody(true, true); // prevent multiple triggers
+
+            // Go to the next level in LEVELS, or the Win screen after the last one.
+            // Stopping this level also stops the HUD; the next level relaunches it.
+            const index = LEVELS.findIndex(level => level.key === this.scene.key);
+            const next = LEVELS[index + 1];
+            this.scene.start(next ? next.key : 'Win');
         } else {
             //  TODO: indicate that the key needs to be collected first
             // maybe play a locked door sound?
