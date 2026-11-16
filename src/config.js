@@ -1,18 +1,20 @@
-// Tuning numbers for the player and level lighting.
+// Tuning numbers for the game, grouped by what they affect.
 
-// Which tile in the tilesheet to use as the player.
-// In Tiled, click the character tile in the Tilesets panel; the "ID" shown in the
-// Properties panel is this number (for the first tileset, ID = frame index).
-export const PLAYER_FRAME = 240;
-export const GEM_FRAME = 102;   // gem tile, used for the gem counter icon (Tiled ID 102)
+// ---- Tiles ----
+// Frame numbers in the tilesheet. In Tiled, click a tile in the Tilesets panel; the "ID"
+// shown in the Properties panel is this number (for the first tileset, ID = frame index).
+export const PLAYER_FRAME = 240;   // the player (also the lives icon in the HUD)
+export const GEM_FRAME = 102;      // gem tile, used for the gem counter icon
 
+// ---- Player movement ----
 export const MOVE_SPEED = 100;      // pixels per second, left/right
 export const JUMP_SPEED = 360;      // initial upward speed when jumping
 export const AIR_JUMPS = 1;         // extra jumps allowed in mid-air (1 = double jump, 2 = triple...)
 export const AIR_JUMP_SPEED = 300;  // mid-air jumps are a bit weaker than the first jump
 export const COYOTE_TIME = 100;     // ms after leaving a ledge where a jump still counts as a ground jump
 
-// Player animations (frames from tiles_transparent; these face right, flipped for left).
+// ---- Player animations ----
+// Frames from tiles_transparent; these face right, flipped for left.
 // repeat: true loops it, false plays once and holds the last frame.
 // Enemies can get their own object in the same shape.
 export const PLAYER_ANIMS = {
@@ -22,11 +24,12 @@ export const PLAYER_ANIMS = {
     fall: { frames: [245],      frameRate: 1, repeat: false },
 };
 
-// Camera deadzone: box in the middle of the screen (in pixels; screen is 320x180).
+// ---- Camera ----
+// Deadzone: box in the middle of the screen (in pixels; screen is 320x180).
 // The camera only moves once the player leaves this box.
 export const CAMERA_DEADZONE = { width: 32, height: 60 };
 
-// Lighting
+// ---- Lighting ----
 export const AMBIENT_COLOR = 0x101018;   // how dark the level is where no light reaches (0x000000 = pitch black)
 // Player light. Other nice colors: 0xb79cff (soft lavender), 0x7fffd4 (aquamarine)
 export const PLAYER_GLOW = { radius: 40, color: 0xffd9a0, intensity: 0.75 };   // warm candle

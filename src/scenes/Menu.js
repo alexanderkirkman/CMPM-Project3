@@ -1,0 +1,64 @@
+import { LEVELS } from '../levels.js';
+import { newRun } from '../run.js';
+
+// Level select. Left/right (or A/D) picks a level, Enter or Space starts a new run there.
+export class Menu extends Phaser.Scene {
+    constructor() {
+        super('Menu');
+    }
+
+    create() {
+        // Remove event handlers on scene shutdown to avoid bugs
+        this.events.once('shutdown', () => {
+            this.registry.events.off('changedata-levelSelect');
+        });
+
+        // One text per level, two per row
+        this.levelTexts = LEVELS.map((level, i) => {
+            const x = 40 + (i % 2) * 156;
+            const y = 90 + Math.floor(i / 2) * 30;
+            return this.add.text(x, y, level.name, { fontSize: '20px', fill: '#FFF', align: 'center' });
+        });
+
+        // Use of registry isn't strictly necessary but makes use of events
+        // to handle the level selection glow easier.
+        // levelSelect is an index into LEVELS (0 = first level).
+        this.registry.set('levelSelect', 0);
+        this.selectGlow(this.registry.get('levelSelect')); // initialize the selection glow
+        // change glow when the selected level changes
+        this.registry.events.on('changedata-levelSelect', (parent, value) => this.selectGlow(value));
+
+        // Set up input
+        this.cursors = this.input.keyboard.createCursorKeys();
+        this.keys = this.input.keyboard.addKeys('A,D,SPACE,ENTER');
+    }
+
+    // Adds glow to the selected level text and removes it from the rest.
+    selectGlow(index) {
+        this.levelTexts.forEach((text, i) => {
+            text.preFX.clear();
+            if (i === index) {
+                text.preFX.addGlow(0xfac500, 2);
+            }
+        });
+    }
+
+    update() {
+        const confirm = Phaser.Input.Keyboard.JustDown(this.keys.SPACE) || Phaser.Input.Keyboard.JustDown(this.keys.ENTER);
+        const left  = Phaser.Input.Keyboard.JustDown(this.cursors.left)  || Phaser.Input.Keyboard.JustDown(this.keys.A);
+        const right = Phaser.Input.Keyboard.JustDown(this.cursors.right) || Phaser.Input.Keyboard.JustDown(this.keys.D);
+
+        // Change selected level
+        if (left && this.registry.get('levelSelect') > 0) {
+            this.registry.inc('levelSelect', -1);
+        } else if (right && this.registry.get('levelSelect') < LEVELS.length - 1) {
+            this.registry.inc('levelSelect', 1);
+        }
+
+        // Start selected level
+        if (confirm) {
+            newRun(this.registry); // fresh run: gems, lives etc. back to their defaults
+            this.scene.start(LEVELS[this.registry.get('levelSelect')].key);
+        }
+    }
+}

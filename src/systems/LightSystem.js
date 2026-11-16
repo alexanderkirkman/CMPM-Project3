@@ -18,6 +18,8 @@
 //
 // Requires: scene.lights.enable() has been called (see Level.js).
 
+import { tileInfo, getProp } from '../objects/TileObject.js';
+
 // ---- Flicker ("fire") tuning ----
 const FLICKER_SPEED = 2.5;    // how fast the flame changes (higher = more frantic)
 const FLICKER_BRIGHT = 0.18;  // brightness wobble (0.18 = +/-18%)
@@ -39,9 +41,8 @@ export class LightSystem {
 
         const layer = map.getObjectLayer(options.layerName ?? 'lights');
         for (const obj of layer?.objects ?? []) {
-            // Tiled's "Class" field is exported as "type" (older Tiled versions call it "class")
-            const objClass = obj.type || obj.class;
-            if (objClass === 'light') {
+            // Phaser puts Tiled's "Class" field in obj.type
+            if (obj.type === 'light') {
                 this.lights.push(this.createLight(map, obj));
             }
         }
@@ -51,14 +52,11 @@ export class LightSystem {
         let x, y, sprite = null;
 
         if (obj.gid) {
-            // Tile object: draw the tile as a sprite.
-            // Find which tileset the gid belongs to, to get the right spritesheet + frame.
-            const tileset = map.tilesets.find(ts => ts.containsTileIndex(obj.gid));
-            const frame = obj.gid - tileset.firstgid;
-            // Tiled positions tile objects by their BOTTOM-left corner; Phaser sprites by center.
-            x = obj.x + obj.width / 2;
-            y = obj.y - obj.height / 2;
-            sprite = this.scene.add.sprite(x, y, tileset.image.key, frame);
+            // Tile object: draw the tile as a sprite
+            const tile = tileInfo(map, obj);
+            x = tile.x;
+            y = tile.y;
+            sprite = this.scene.add.sprite(x, y, tile.key, tile.frame);
             sprite.setPipeline('PixelLight');
         } else {
             // Point (width/height 0) or rectangle: use its center, no sprite.
@@ -145,13 +143,6 @@ function fireNoise(t, seed) {
     return 0.55 * noise1D(t + seed)
          + 0.30 * noise1D(t * 2.7 + seed * 3.1)
          + 0.15 * noise1D(t * 6.3 + seed * 7.7);
-}
-
-// ---- Tiled helpers ----
-
-// Tiled stores custom properties as [{ name, type, value }, ...]
-export function getProp(obj, name) {
-    return obj.properties?.find(p => p.name === name)?.value;
 }
 
 // Tiled color properties look like "#AARRGGBB"; Phaser wants a number like 0xRRGGBB
