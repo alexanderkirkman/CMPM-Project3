@@ -1,4 +1,5 @@
 import { LEVELS } from '../levels.js';
+import { newRun } from '../run.js';
 
 export class Menu extends Phaser.Scene {
   constructor() {
@@ -55,6 +56,7 @@ export class Menu extends Phaser.Scene {
 
     // Start selected level
     if (confirm) {
+      newRun(this.registry); // fresh run: gems etc. back to their defaults
       this.scene.start(LEVELS[this.registry.get("lvlSelect")].key);
     }
   }
