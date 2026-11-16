@@ -5,9 +5,9 @@ import { Torch, allTorchesLit } from '../objects/Torch.js';
 import { Gem } from '../objects/Gem.js';
 import { Key, revealAllKeys, allKeysCollected } from '../objects/Key.js';
 import { Goal } from '../objects/Goal.js';
-import { Hazard } from '../objects/Hazard.js';
+import { Spike } from '../objects/Spike.js';
 import { MovingPlatform } from '../objects/MovingPlatform.js';
-import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE, HAZARD_CLASSES } from '../config.js';
+import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE } from '../config.js';
 import { LEVELS } from '../levels.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
@@ -92,7 +92,7 @@ export class Level extends Phaser.Scene {
 
     // The player, at the spawn point placed in Tiled
     createPlayer(map) {
-        const spawn = map.findObject('spawns', obj => obj.name === 'player');
+        const spawn = this.objectsOfClass(map, 'player')[0];
         this.player = new Player(this, spawn.x, spawn.y);
         this.physics.add.collider(this.player, this.ground);
         if (this.platforms) {
@@ -104,37 +104,38 @@ export class Level extends Phaser.Scene {
         map.createLayer('foreground', this.tilesets).setPipeline('PixelLight');
     }
 
-    // Darkness, the player's glow, the lights from the 'lights' layer, and torches
+    // Darkness, the player's glow, the map's lights, and torches
     createLights(map) {
         this.lights.enable().setAmbientColor(AMBIENT_COLOR);
         this.playerGlow = this.lights.addLight(this.player.x, this.player.y,
             PLAYER_GLOW.radius, PLAYER_GLOW.color, PLAYER_GLOW.intensity);
-        this.lightSystem = new LightSystem(this, map);   // reads the 'lights' layer
+        this.lightSystem = new LightSystem(this, map);   // "light" and "torch" objects
 
-        // Lights named "torch" in Tiled become torches the player can light
+        // Objects with the class "torch" also become torches the player can light
         this.torches = this.lightSystem.lights
-            .filter(l => l.obj.name === 'torch')
+            .filter(l => l.obj.type === 'torch')
             .map(l => new Torch(this, l, this.player));
     }
 
-    // Gems, keys and goals (by name, on the 'triggers' layer), hazards and moving platforms (by class)
+    // Gems, keys, goals, spikes and moving platforms, found by their Tiled class
     createObjects(map) {
-        const triggers = map.getObjectLayer('triggers')?.objects ?? [];
-        const named = (name) => triggers.filter(obj => obj.name === name);
+        const make = (cls, ObjectClass) => this.objectsOfClass(map, cls)
+            .map(obj => new ObjectClass(this, map, obj, this.player));
 
-        this.gems = named('gem').map(obj => new Gem(this, map, obj, this.player));
-        this.keyItems = named('key').map(obj => new Key(this, map, obj, this.player));
+        this.gems = make('gem', Gem);
+        this.keyItems = make('key', Key);
         // A list, so a level could have more than one goal (alternate endings)
-        this.goals = named('goal').map(obj => new Goal(this, map, obj, this.player));
+        this.goals = make('goal', Goal);
+        this.spikes = make('spike', Spike);
+        this.movingPlatforms = make('moving-platform', MovingPlatform);
+    }
 
-        // Hazards and moving platforms are found by class, on any object layer
-        const allObjects = map.objects.flatMap(layer => layer.objects);
-        this.hazards = allObjects
-            .filter(obj => HAZARD_CLASSES.includes(obj.type))
-            .map(obj => new Hazard(this, map, obj, this.player));
-        this.movingPlatforms = allObjects
-            .filter(obj => obj.type === 'moving-platform')
-            .map(obj => new MovingPlatform(this, map, obj, this.player));
+    // Every Tiled object with this class, on any object layer.
+    // (Phaser puts Tiled's "Class" field in obj.type.)
+    objectsOfClass(map, cls) {
+        return map.objects
+            .flatMap(layer => layer.objects)
+            .filter(obj => obj.type === cls);
     }
 
     // The game renders at 320x180 (see main.js), the map is 320 wide, so it fills the
@@ -166,9 +167,9 @@ export class Level extends Phaser.Scene {
         this.registry.inc('gems', amount);   // the HUD updates itself from this
     }
 
-    // Called by a Hazard when it kills the player
+    // Called by a Spike when it kills the player
     onPlayerDeath() {
-        if (this.dead) return;   // only die once, even if two hazards hit at the same time
+        if (this.dead) return;   // only die once, even if two spikes hit at the same time
         this.dead = true;
 
         this.registry.inc('lives', -1);

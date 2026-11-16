@@ -42,7 +42,7 @@ src/objects/Torch.js        torches: light up on touch, smoke puff, allTorchesLi
 src/objects/Gem.js          gems: collect on touch, star burst, adds to the gem count
 src/objects/Key.js          keys: hidden until every torch is lit, then collectable
 src/objects/Goal.js         goal: with the key, goes to the next level (or Win)
-src/objects/Hazard.js       hazards like spikes; danger-x/danger-y pick which sides kill
+src/objects/Spike.js        spikes; danger-x/danger-y pick which sides kill
 src/systems/LightSystem.js  turns objects on the "lights" layer into lights
 src/systems/Animations.js   creates the player animations and picks idle/run/jump/fall
 src/ui/Counter.js           icon + "x N" counter used by the HUD
@@ -74,13 +74,13 @@ Layers, in draw order:
 - `ground`: the solid stuff. Every non-empty tile here gets collision.
 - `decoration`: non-solid detail, drawn behind the player.
 - `foreground`: drawn in front of the player.
-- `triggers` (object layer): has a goal, a key, and two gems placed, but the code doesn't read this layer yet. These objects don't show up in game at all right now.
+- `triggers` (object layer): the goal, key, and gems. The code finds objects by their Class (`gem`, `key`, `goal`, `spike`, `torch`...) on any object layer, so layer names are just for keeping the map organized.
 - `lights` (object layer): every light source in the level. See below.
-- `spawns` (object layer): a point named `player` where the player starts. The game crashes without it.
+- `spawns` (object layer): a point with the Class `player` where the player starts. The game crashes without it.
 
 ## Adding lights
 
-Put an object on the `lights` layer and set its Class to `light`. Objects with any other class get ignored.
+Put an object on any object layer (the `lights` layer keeps things tidy) and set its Class to `light` for a plain light, or `torch` for a light the player lights by touching it. Objects with any other class don't make a light.
 
 There are two ways to place one:
 

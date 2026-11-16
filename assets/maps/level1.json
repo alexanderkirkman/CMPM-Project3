@@ -454,7 +454,7 @@
                          "value":50
                         }],
                  "rotation":0,
-                 "type":"light",
+                 "type":"torch",
                  "visible":true,
                  "width":16,
                  "x":176,
@@ -488,7 +488,7 @@
                          "value":50
                         }],
                  "rotation":0,
-                 "type":"light",
+                 "type":"torch",
                  "visible":true,
                  "width":16,
                  "x":96,
@@ -522,7 +522,7 @@
                          "value":50
                         }],
                  "rotation":0,
-                 "type":"light",
+                 "type":"torch",
                  "visible":true,
                  "width":16,
                  "x":272,
@@ -556,7 +556,7 @@
                          "value":50
                         }],
                  "rotation":0,
-                 "type":"light",
+                 "type":"torch",
                  "visible":true,
                  "width":16,
                  "x":160,
@@ -590,7 +590,7 @@
                          "value":50
                         }],
                  "rotation":0,
-                 "type":"light",
+                 "type":"torch",
                  "visible":true,
                  "width":16,
                  "x":208,
@@ -624,7 +624,7 @@
                          "value":50
                         }],
                  "rotation":0,
-                 "type":"light",
+                 "type":"torch",
                  "visible":true,
                  "width":16,
                  "x":176,
@@ -658,7 +658,7 @@
                          "value":50
                         }],
                  "rotation":0,
-                 "type":"light",
+                 "type":"torch",
                  "visible":true,
                  "width":16,
                  "x":112,
@@ -692,7 +692,7 @@
                          "value":50
                         }],
                  "rotation":0,
-                 "type":"light",
+                 "type":"torch",
                  "visible":true,
                  "width":16,
                  "x":80,

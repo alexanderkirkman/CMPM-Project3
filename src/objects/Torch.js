@@ -1,6 +1,6 @@
 import { getProp } from './TileObject.js';
 
-// A torch from the Tiled "lights" layer (an object named "torch").
+// A torch from Tiled (an object with the class "torch"). LightSystem makes its light.
 // It starts unlit if its "active" property is false, and lights up when the player touches it.
 export class Torch {
     constructor(scene, light, player) {
@@ -16,10 +16,10 @@ export class Torch {
         this.sprite.body.setAllowGravity(false);
         this.sprite.body.setImmovable(true);
 
-        scene.physics.add.overlap(player, this.sprite, () => this.touch());
+        scene.physics.add.overlap(player, this.sprite, () => this.onTouch());
     }
 
-    touch() {
+    onTouch() {
         if (!this.lit) {
             this.turnOn();
             this.scene.onTorchLit();
