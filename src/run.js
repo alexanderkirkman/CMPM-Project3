@@ -3,6 +3,7 @@
 // To add one (like a power-up), give it a starting value here.
 export const RUN_DEFAULTS = {
     gems: 0,
+    lives: 3,
 };
 
 // Start a new run: put every default back into the registry
