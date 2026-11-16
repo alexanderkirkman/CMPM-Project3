@@ -289,7 +289,7 @@
   </object>
  </objectgroup>
  <objectgroup id="7" name="lights">
-  <object id="11" name="torch" type="light" gid="249" x="176" y="624" width="16" height="16">
+  <object id="11" name="torch" type="torch" gid="249" x="176" y="624" width="16" height="16">
    <properties>
     <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
@@ -297,7 +297,7 @@
     <property name="radius" type="int" value="50"/>
    </properties>
   </object>
-  <object id="12" name="torch" type="light" gid="249" x="96" y="480" width="16" height="16">
+  <object id="12" name="torch" type="torch" gid="249" x="96" y="480" width="16" height="16">
    <properties>
     <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
@@ -305,7 +305,7 @@
     <property name="radius" type="int" value="50"/>
    </properties>
   </object>
-  <object id="13" name="torch" type="light" gid="249" x="272" y="320" width="16" height="16">
+  <object id="13" name="torch" type="torch" gid="249" x="272" y="320" width="16" height="16">
    <properties>
     <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
@@ -313,7 +313,7 @@
     <property name="radius" type="int" value="50"/>
    </properties>
   </object>
-  <object id="14" name="torch" type="light" gid="249" x="160" y="192" width="16" height="16">
+  <object id="14" name="torch" type="torch" gid="249" x="160" y="192" width="16" height="16">
    <properties>
     <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
@@ -321,7 +321,7 @@
     <property name="radius" type="int" value="50"/>
    </properties>
   </object>
-  <object id="16" name="torch" type="light" gid="249" x="208" y="320" width="16" height="16">
+  <object id="16" name="torch" type="torch" gid="249" x="208" y="320" width="16" height="16">
    <properties>
     <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
@@ -329,7 +329,7 @@
     <property name="radius" type="int" value="50"/>
    </properties>
   </object>
-  <object id="17" name="torch" type="light" gid="249" x="176" y="96" width="16" height="16">
+  <object id="17" name="torch" type="torch" gid="249" x="176" y="96" width="16" height="16">
    <properties>
     <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
@@ -337,7 +337,7 @@
     <property name="radius" type="int" value="50"/>
    </properties>
   </object>
-  <object id="18" name="torch" type="light" gid="249" x="112" y="96" width="16" height="16">
+  <object id="18" name="torch" type="torch" gid="249" x="112" y="96" width="16" height="16">
    <properties>
     <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>
@@ -345,7 +345,7 @@
     <property name="radius" type="int" value="50"/>
    </properties>
   </object>
-  <object id="19" name="torch" type="light" gid="249" x="80" y="624" width="16" height="16">
+  <object id="19" name="torch" type="torch" gid="249" x="80" y="624" width="16" height="16">
    <properties>
     <property name="active" type="bool" value="false"/>
     <property name="color" type="color" value="#ffff8c32"/>

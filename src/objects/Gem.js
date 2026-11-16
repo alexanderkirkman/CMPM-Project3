@@ -1,16 +1,16 @@
 import { TileObject, getProp } from './TileObject.js';
 
-// A gem from the Tiled "triggers" layer (a tile object named "gem").
+// A gem from Tiled (a tile object with the class "gem").
 // Touching it collects it and adds its "value" property (default 1) to the run's gem count.
 export class Gem extends TileObject {
     constructor(scene, map, obj, player) {
         super(scene, map, obj);
         this.value = getProp(obj, 'value') ?? 1;
 
-        scene.physics.add.overlap(player, this, () => this.collect());
+        scene.physics.add.overlap(player, this, () => this.onTouch());
     }
 
-    collect() {
+    onTouch() {
         // Turn off the body and hide the sprite, so it can't be picked up twice
         this.disableBody(true, true);
         this.scene.addGems(this.value);

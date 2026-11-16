@@ -1,6 +1,6 @@
 import { TileObject } from './TileObject.js';
 
-// A key from the Tiled "triggers" layer (a tile object named "key").
+// A key from Tiled (a tile object with the class "key").
 // It starts hidden and appears once every torch in the level is lit.
 export class Key extends TileObject {
     constructor(scene, map, obj, player) {
@@ -10,7 +10,7 @@ export class Key extends TileObject {
         // Hidden and untouchable until reveal()
         this.disableBody(true, true);
 
-        scene.physics.add.overlap(player, this, () => this.collect());
+        scene.physics.add.overlap(player, this, () => this.onTouch());
     }
 
     reveal() {
@@ -19,7 +19,7 @@ export class Key extends TileObject {
         // TODO? maybe add a sound effect
     }
 
-    collect() {
+    onTouch() {
         // Turn off the body and hide the sprite, so it can't be picked up twice
         this.disableBody(true, true);
         this.collected = true;

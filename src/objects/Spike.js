@@ -1,12 +1,12 @@
 import { TileObject, getProp } from './TileObject.js';
 
-// A hazard from Tiled: a tile object whose class is in HAZARD_CLASSES (config.js), like "spike".
+// A spike from Tiled (a tile object with the class "spike").
 // The player can stand on it, but can only stand next to it when danger-x is on
 // (otherwise they walk straight through its sides). Its "danger-x" and
 // "danger-y" bool properties say which sides kill:
 //   danger-x: touching its left or right side
 //   danger-y: touching its top or bottom
-export class Hazard extends TileObject {
+export class Spike extends TileObject {
     constructor(scene, map, obj, player) {
         super(scene, map, obj);
 

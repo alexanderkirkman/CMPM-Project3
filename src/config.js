@@ -19,10 +19,6 @@ export const WALL_JUMP_X = 70;       // sideways push away from the wall
 export const WALL_JUMP_Y = 280;       // upward speed of a wall jump
 export const WALL_JUMP_LOCK = 150;    // ms after a wall jump where left/right input is ignored
 
-// Hazards: Tiled classes that become a Hazard (see Hazard.js for danger-x / danger-y).
-// Add new ones here, like 'saw' or 'lava'.
-export const HAZARD_CLASSES = ['spike'];
-
 // One-way platforms
 export const DROP_TIME = 200;        // ms the player falls through platforms after pressing down on one
 export const PLATFORM_SPEED = 40;    // default moving platform speed (pixels per second)

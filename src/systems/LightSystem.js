@@ -1,5 +1,6 @@
-// LightSystem: builds every light in a Tiled object layer (default: 'lights').
-// Any object whose Class is "light" becomes a light source.
+// LightSystem: builds every light in the Tiled map, on any object layer.
+// Any object whose Class is "light" or "torch" becomes a light source
+// (Level.js then turns the "torch" ones into Torches the player can light).
 //
 // Object kinds you can place in Tiled:
 //   - Tile object (Insert Tile, T): shows that tile as a sprite AND emits light. Good for torches.
@@ -35,14 +36,13 @@ const PULSE_RADIUS = 0.10;    // radius swell (+/-10%)
 const SPEED_VARIATION = 0.4;
 
 export class LightSystem {
-    constructor(scene, map, options = {}) {
+    constructor(scene, map) {
         this.scene = scene;
         this.lights = [];
 
-        const layer = map.getObjectLayer(options.layerName ?? 'lights');
-        for (const obj of layer?.objects ?? []) {
+        for (const obj of map.objects.flatMap(layer => layer.objects)) {
             // Phaser puts Tiled's "Class" field in obj.type
-            if (obj.type === 'light') {
+            if (obj.type === 'light' || obj.type === 'torch') {
                 this.lights.push(this.createLight(map, obj));
             }
         }

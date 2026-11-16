@@ -1,4 +1,4 @@
-// Base class for things placed in Tiled as tile objects (gems, keys, goals, hazards).
+// Base class for things placed in Tiled as tile objects (gems, keys, goals, spikes, moving platforms).
 // It shows the object's tile as a sprite, lit by PixelLight, with a physics body that
 // stays where it was placed (no gravity, can't be pushed).
 export class TileObject extends Phaser.Physics.Arcade.Sprite {
