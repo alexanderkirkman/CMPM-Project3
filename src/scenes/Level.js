@@ -4,7 +4,7 @@ import { Player } from '../objects/Player.js';
 import { Torch, allTorchesLit } from '../objects/Torch.js';
 import { Gem } from '../objects/Gem.js';
 import { allKeysCollected, Key, revealAllKeys } from '../objects/Key.js';
-import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE } from '../config.js';
+import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE } from '../config.js';
 import { Goal } from '../objects/Goal.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
@@ -98,6 +98,8 @@ export class Level extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player, true, 0.1, 1); // 0.1, 1 = smooth follow
+        // small hops inside this box don't move the camera
+        this.cameras.main.setDeadzone(CAMERA_DEADZONE.width, CAMERA_DEADZONE.height);
 
         // ---- 5. Controls ----
         this.cursors = this.input.keyboard.createCursorKeys();
