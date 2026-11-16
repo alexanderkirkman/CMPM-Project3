@@ -8,10 +8,16 @@ export const GEM_FRAME = 102;      // gem tile, used for the gem counter icon
 
 // ---- Player movement ----
 export const MOVE_SPEED = 100;      // pixels per second, left/right
-export const JUMP_SPEED = 360;      // initial upward speed when jumping
-export const AIR_JUMPS = 1;         // extra jumps allowed in mid-air (1 = double jump, 2 = triple...)
+export const JUMP_SPEED = 300;      // initial upward speed when jumping
+export const AIR_JUMPS = 0;         // extra jumps allowed in mid-air (0 = off, 1 = double jump, 2 = triple...)
 export const AIR_JUMP_SPEED = 300;  // mid-air jumps are a bit weaker than the first jump
 export const COYOTE_TIME = 100;     // ms after leaving a ledge where a jump still counts as a ground jump
+
+// Wall slide + wall jump
+export const WALL_SLIDE_SPEED = 40;   // max fall speed while holding into a wall in the air
+export const WALL_JUMP_X = 70;       // sideways push away from the wall
+export const WALL_JUMP_Y = 280;       // upward speed of a wall jump
+export const WALL_JUMP_LOCK = 150;    // ms after a wall jump where left/right input is ignored
 
 // ---- Player animations ----
 // Frames from tiles_transparent; these face right, flipped for left.

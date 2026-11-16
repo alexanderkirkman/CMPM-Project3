@@ -18,7 +18,7 @@ You do need a local server, though. If you just double-click `index.html` the br
 | Move | Left/Right arrows or A/D |
 | Jump | Up arrow, W, or Space |
 
-You get one extra jump in the air (double jump). It refills when you land.
+Hold toward a wall in the air to slide down it slowly, and press jump while on a wall to jump up and away from it.
 
 ## Folder layout
 
@@ -37,7 +37,7 @@ src/scenes/HUD.js           gem and lives counters drawn on top of the level
 src/scenes/Win.js           shown after the last level, with the gem total
 src/scenes/GameOver.js      shown when you run out of lives
 src/objects/TileObject.js   base class for Tiled tile objects, plus tileInfo() and getProp()
-src/objects/Player.js       the player: movement, jump, coyote time, double jump
+src/objects/Player.js       the player: movement, jump, coyote time, wall slide, wall jump
 src/objects/Torch.js        torches: light up on touch, smoke puff, allTorchesLit()
 src/objects/Gem.js          gems: collect on touch, star burst, adds to the gem count
 src/objects/Key.js          keys: hidden until every torch is lit, then collectable
