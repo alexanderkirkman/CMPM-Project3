@@ -3,14 +3,18 @@ import { LightSystem } from '../systems/LightSystem.js';
 import { Player } from '../objects/Player.js';
 import { Torch, allTorchesLit } from '../objects/Torch.js';
 import { Gem } from '../objects/Gem.js';
-import { allKeysCollected, Key, revealAllKeys } from '../objects/Key.js';
-import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE } from '../config.js';
+import { Key, revealAllKeys, allKeysCollected } from '../objects/Key.js';
 import { Goal } from '../objects/Goal.js';
 import { Hazard } from '../objects/Hazard.js';
+import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE } from '../config.js';
 import { LEVELS } from '../levels.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
 // and map name; they can override create()/update() to add their own mechanics.
+//
+// Run values (gems, lives: see run.js) live in the registry and carry over between levels.
+// Level values (like the keys you're holding) live on the level and start over every
+// time create() runs, since the objects are made fresh.
 export class Level extends Phaser.Scene {
     // mapName is the file in assets/maps without ".json", and is also the map's cache key
     constructor(key, mapName) {
@@ -34,10 +38,28 @@ export class Level extends Phaser.Scene {
     }
 
     create() {
-        // ---- 1. Build the map ----
+        const map = this.createMap();
+        this.createPlayer(map);
+        this.createLights(map);
+        this.createObjects(map);
+
+        // Gems when this attempt started, put back if the player dies
+        this.startGems = this.registry.get('gems');
+        this.dead = false;
+
+        // The HUD scene draws on top and reads values from the registry
+        this.scene.launch('HUD');
+        this.events.once('shutdown', () => this.scene.stop('HUD'));
+
+        this.setupCamera(map);
+        this.setupControls();
+    }
+
+    // Builds the tile layers. Returns the map so the other steps can read its objects.
+    createMap() {
         const map = this.make.tilemap({ key: this.mapName });
 
-        // tileset name in Tiled  ->  key we loaded above
+        // tileset name in Tiled  ->  key we loaded in preload()
         const tilesets = [
             map.addTilesetImage('monochrome_tilemap_transparent_packed', 'tiles_transparent'),
             map.addTilesetImage('monochrome_tilemap_packed', 'tiles_solid'),
@@ -48,23 +70,30 @@ export class Level extends Phaser.Scene {
         // Phaser's Light2D, registered in main.js). Anything WITHOUT it ignores the darkness
         // and draws at full brightness.
         map.createLayer('background', tilesets).setPipeline('PixelLight');
-        const ground = map.createLayer('ground', tilesets).setPipeline('PixelLight');
+        this.ground = map.createLayer('ground', tilesets).setPipeline('PixelLight');
         map.createLayer('decoration', tilesets).setPipeline('PixelLight');
 
         // Every non-empty tile on the ground layer is solid.
-        ground.setCollisionByExclusion([-1]);
+        this.ground.setCollisionByExclusion([-1]);
 
-        // ---- 2. Player, at the spawn point you placed in Tiled ----
+        this.tilesets = tilesets;   // createPlayer() needs these for the foreground layer
+        return map;
+    }
+
+    // The player, at the spawn point placed in Tiled
+    createPlayer(map) {
         const spawn = map.findObject('spawns', obj => obj.name === 'player');
         this.player = new Player(this, spawn.x, spawn.y);
-        this.physics.add.collider(this.player, ground);
+        this.physics.add.collider(this.player, this.ground);
 
         // Created after the player, so it draws in front of them.
-        map.createLayer('foreground', tilesets).setPipeline('PixelLight');
+        map.createLayer('foreground', this.tilesets).setPipeline('PixelLight');
+    }
 
-        // ---- 3. Lighting ----
+    // Darkness, the player's glow, the lights from the 'lights' layer, and torches
+    createLights(map) {
         this.lights.enable().setAmbientColor(AMBIENT_COLOR);
-        this.playerGlow = this.lights.addLight(spawn.x, spawn.y,
+        this.playerGlow = this.lights.addLight(this.player.x, this.player.y,
             PLAYER_GLOW.radius, PLAYER_GLOW.color, PLAYER_GLOW.intensity);
         this.lightSystem = new LightSystem(this, map);   // reads the 'lights' layer
 
@@ -72,50 +101,38 @@ export class Level extends Phaser.Scene {
         this.torches = this.lightSystem.lights
             .filter(l => l.obj.name === 'torch')
             .map(l => new Torch(this, l, this.player));
+    }
 
-        // ---- Gems (objects named "gem" on the 'triggers' layer) ----
+    // Gems, keys and goals (by name, on the 'triggers' layer) and hazards (by class)
+    createObjects(map) {
         const triggers = map.getObjectLayer('triggers')?.objects ?? [];
-        this.gems = triggers
-            .filter(obj => obj.name === 'gem')
-            .map(obj => new Gem(this, map, obj, this.player));
-        // ---- Keys (Objects named "key" on the 'triggers' layer) ----
-        this.key = triggers
-            .filter(obj => obj.name === 'key')
-            .map(obj => new Key(this, map, obj, this.player));
-        // ---- Goal (Technically supports multiple goals, if alternate level endings are desired) ----
-        this.goal = triggers
-            .filter(obj => obj.name === 'goal')
-            .map(obj => new Goal(this, map, obj, this.player));
-        // ---- Hazards (objects with the class "hazard", on any object layer) ----
+        const named = (name) => triggers.filter(obj => obj.name === name);
+
+        this.gems = named('gem').map(obj => new Gem(this, map, obj, this.player));
+        this.keyItems = named('key').map(obj => new Key(this, map, obj, this.player));
+        // A list, so a level could have more than one goal (alternate endings)
+        this.goals = named('goal').map(obj => new Goal(this, map, obj, this.player));
+
+        // Hazards can be on any object layer
         this.hazards = map.objects
             .flatMap(layer => layer.objects)
             .filter(obj => obj.type === 'hazard')
             .map(obj => new Hazard(this, map, obj, this.player));
+    }
 
-        // Run values (gems, see run.js) live in the registry and carry over between levels.
-        // Level values (like the keys you're holding) live on the level and start over in
-        // create() each time, since this.key etc. are made fresh above.
-
-        // Gems when this attempt started, put back if the player dies
-        this.startGems = this.registry.get('gems');
-        this.dead = false;
-
-        // ---- HUD ----
-        // The HUD scene draws on top and reads values from the registry
-        this.scene.launch('HUD');
-        this.events.once('shutdown', () => this.scene.stop('HUD'));
-
-        // ---- 4. World + camera ----
-        // The game renders at 320x180 (see main.js), the map is 320 wide, so it fills the
-        // screen width exactly and we see 180px (about 11 tiles) of height. No zoom needed:
-        // Scale.FIT stretches the whole canvas up to the window with chunky pixels.
+    // The game renders at 320x180 (see main.js), the map is 320 wide, so it fills the
+    // screen width exactly and we see 180px (about 11 tiles) of height. No zoom needed:
+    // Scale.FIT stretches the whole canvas up to the window with chunky pixels.
+    setupCamera(map) {
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-        this.cameras.main.startFollow(this.player, true, 0.1, 1); // 0.1, 1 = smooth follow
-        // small hops inside this box don't move the camera
+        this.cameras.main.startFollow(this.player, true, 0.1, 1);
+        // The camera only moves once the player leaves this box, so small hops don't move it.
+        // (With a deadzone, Phaser ignores the 0.1, 1 lerp above.)
         this.cameras.main.setDeadzone(CAMERA_DEADZONE.width, CAMERA_DEADZONE.height);
+    }
 
-        // ---- 5. Controls ----
+    setupControls() {
         this.cursors = this.input.keyboard.createCursorKeys();
         this.keys = this.input.keyboard.addKeys('W,A,D,SPACE');
     }
@@ -123,7 +140,7 @@ export class Level extends Phaser.Scene {
     // Called by a Torch when the player lights it
     onTorchLit() {
         if (allTorchesLit(this.torches)) {
-            revealAllKeys(this.key);
+            revealAllKeys(this.keyItems);
         }
     }
 
@@ -146,9 +163,9 @@ export class Level extends Phaser.Scene {
         }
     }
 
-    // Called by Goal on when player touches the goal
-    onGoalContact(goal){
-        if(allKeysCollected(this.key)) {
+    // Called by a Goal when the player touches it
+    onGoalContact(goal) {
+        if (allKeysCollected(this.keyItems)) {
             goal.disableBody(true, true); // prevent multiple triggers
 
             // Go to the next level in LEVELS, or the Win screen after the last one.
@@ -157,7 +174,7 @@ export class Level extends Phaser.Scene {
             const next = LEVELS[index + 1];
             this.scene.start(next ? next.key : 'Win');
         } else {
-            //  TODO: indicate that the key needs to be collected first
+            // TODO: indicate that the key needs to be collected first
             // maybe play a locked door sound?
         }
     }

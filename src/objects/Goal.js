@@ -1,22 +1,15 @@
-import { getProp } from '../systems/LightSystem.js';
+import { TileObject } from './TileObject.js';
 
 // A goal from the Tiled "triggers" layer (a tile object named "goal").
-
-export class Goal extends Phaser.Physics.Arcade.Sprite {
+// Touching it tells the level, which checks whether the player has the key.
+export class Goal extends TileObject {
     constructor(scene, map, obj, player) {
-        // Find which tileset the gid belongs to, to get the right spritesheet + frame
-        const tileset = map.tilesets.find(ts => ts.containsTileIndex(obj.gid));
-        const frame = obj.gid - tileset.firstgid;
-        // Tiled positions tile objects by their BOTTOM-left corner; Phaser sprites by center
-        super(scene, obj.x + obj.width / 2, obj.y - obj.height / 2, tileset.image.key, frame);
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
+        super(scene, map, obj);
 
-        this.setPipeline('PixelLight');
-        this.body.setAllowGravity(false);   // stays where it was placed
-        this.setImmovable(true);
-
-        scene.physics.add.overlap(player, this, () => {scene.onGoalContact(this)});
+        scene.physics.add.overlap(player, this, () => this.reach());
     }
 
+    reach() {
+        this.scene.onGoalContact(this);
+    }
 }

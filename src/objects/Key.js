@@ -1,36 +1,21 @@
-import { getProp } from '../systems/LightSystem.js';
+import { TileObject } from './TileObject.js';
 
 // A key from the Tiled "triggers" layer (a tile object named "key").
-
-export class Key extends Phaser.Physics.Arcade.Sprite {
+// It starts hidden and appears once every torch in the level is lit.
+export class Key extends TileObject {
     constructor(scene, map, obj, player) {
-        // Find which tileset the gid belongs to, to get the right spritesheet + frame
-        const tileset = map.tilesets.find(ts => ts.containsTileIndex(obj.gid));
-        const frame = obj.gid - tileset.firstgid;
-        // Tiled positions tile objects by their BOTTOM-left corner; Phaser sprites by center
-        super(scene, obj.x + obj.width / 2, obj.y - obj.height / 2, tileset.image.key, frame);
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
-
-        this.setPipeline('PixelLight');
-        this.body.setAllowGravity(false);   // stays where it was placed
-        this.setImmovable(true);
-
-        // set inactive and invisible
-        this.active = false;
-        this.body.enable = false;
-        this.scale = 0; // ~= invisible
-
+        super(scene, map, obj);
         this.collected = false;
+
+        // Hidden and untouchable until reveal()
+        this.disableBody(true, true);
 
         scene.physics.add.overlap(player, this, () => this.collect());
     }
 
     reveal() {
-        // set key active and visible
-        this.active = true;
-        this.body.enable = true;
-        this.scale = 1;
+        // Turn the body back on and show the sprite (it stays where Tiled put it)
+        this.enableBody(false, 0, 0, true, true);
         // TODO? maybe add a sound effect
     }
 
@@ -42,7 +27,7 @@ export class Key extends Phaser.Physics.Arcade.Sprite {
 }
 
 export function revealAllKeys(keys) {
-    keys.every(k => k.reveal());
+    keys.forEach(k => k.reveal());
 }
 
 export function allKeysCollected(keys) {

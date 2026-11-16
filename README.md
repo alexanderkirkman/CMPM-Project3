@@ -26,15 +26,27 @@ You get one extra jump in the air (double jump). It refills when you land.
 index.html                  loads phaser.js and src/main.js
 phaser.js                   Phaser 3.90.0
 src/main.js                 game config (size, physics, registers the light shader)
-src/config.js               tuning numbers: player movement, jumps, ambient darkness, player glow
-src/levels.js               list of levels; the menu and main.js both read it
-src/scenes/MainMenu.js      level select menu
-src/scenes/Level.js         base level scene: loads the map, player, lights, camera, controls
+src/config.js               tuning numbers: tile frames, player movement, animations, camera, lighting
+src/levels.js               list of levels; the menu and Level.js both read it
+src/run.js                  values that carry over between levels (gems, lives) and newRun()
+src/scenes/Menu.js          level select menu; picking a level starts a new run
+src/scenes/Level.js         base level scene: loads the map, player, lights, objects, camera, controls
 src/scenes/Level1.js        level 1 (just picks its map; add level-specific stuff here)
 src/scenes/Level2.js        level 2
+src/scenes/HUD.js           gem and lives counters drawn on top of the level
+src/scenes/Win.js           shown after the last level, with the gem total
+src/scenes/GameOver.js      shown when you run out of lives
+src/objects/TileObject.js   base class for Tiled tile objects, plus tileInfo() and getProp()
 src/objects/Player.js       the player: movement, jump, coyote time, double jump
 src/objects/Torch.js        torches: light up on touch, smoke puff, allTorchesLit()
+src/objects/Gem.js          gems: collect on touch, star burst, adds to the gem count
+src/objects/Key.js          keys: hidden until every torch is lit, then collectable
+src/objects/Goal.js         goal: with the key, goes to the next level (or Win)
+src/objects/Hazard.js       hazards like spikes; danger-x/danger-y pick which sides kill
 src/systems/LightSystem.js  turns objects on the "lights" layer into lights
+src/systems/Animations.js   creates the player animations and picks idle/run/jump/fall
+src/ui/Counter.js           icon + "x N" counter used by the HUD
+src/ui/pixelFont.js         tiny pixel font for the HUD numbers
 src/pipelines/PixelLightPipeline.js   the pixel-art lighting shader
 assets/images/              the two tilesheets (16x16 tiles)
 assets/particles/           particle images in use (copied from kenney_particle-pack)

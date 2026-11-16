@@ -1,4 +1,4 @@
-import { Menu } from './scenes/MainMenu.js';
+import { Menu } from './scenes/Menu.js';
 import { Level1 } from './scenes/Level1.js';
 import { Level2 } from './scenes/Level2.js';
 import { HUD } from './scenes/HUD.js';
@@ -18,12 +18,12 @@ const config = {
     maxLights: 64,                                     // 64 should be able to run on all modern devices (lights on screen at a given moment)
     backgroundColor: '#000000',
     pixelArt: true,             // keep Kenney's tiny sprites crisp when scaled up
-    // The first scene in the list runs first: the Menu, which starts the chosen level.
     physics: {
         default: 'arcade',
         arcade: { gravity: { y: 800 }, fps: 120, debug: false },
     },
-    // HUD goes last so it draws on top of the levels
+    // The first scene in the list runs first: the Menu, which starts the chosen level.
+    // HUD goes last so it draws on top of the levels.
     scene: [Menu, Level1, Level2, Win, GameOver, HUD],
     scale: {
         mode: Phaser.Scale.FIT,
