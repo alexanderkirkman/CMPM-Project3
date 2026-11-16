@@ -6,7 +6,8 @@ import { Gem } from '../objects/Gem.js';
 import { Key, revealAllKeys, allKeysCollected } from '../objects/Key.js';
 import { Goal } from '../objects/Goal.js';
 import { Hazard } from '../objects/Hazard.js';
-import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE } from '../config.js';
+import { MovingPlatform } from '../objects/MovingPlatform.js';
+import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE, HAZARD_CLASSES } from '../config.js';
 import { LEVELS } from '../levels.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
@@ -76,6 +77,15 @@ export class Level extends Phaser.Scene {
         // Every non-empty tile on the ground layer is solid.
         this.ground.setCollisionByExclusion([-1]);
 
+        // One-way platforms (optional layer): only the top of each tile is solid
+        this.platforms = null;
+        if (map.getLayer('platforms')) {
+            this.platforms = map.createLayer('platforms', tilesets).setPipeline('PixelLight');
+            this.platforms.forEachTile(tile => {
+                if (tile.index !== -1) tile.setCollision(false, false, true, false);
+            });
+        }
+
         this.tilesets = tilesets;   // createPlayer() needs these for the foreground layer
         return map;
     }
@@ -85,6 +95,10 @@ export class Level extends Phaser.Scene {
         const spawn = map.findObject('spawns', obj => obj.name === 'player');
         this.player = new Player(this, spawn.x, spawn.y);
         this.physics.add.collider(this.player, this.ground);
+        if (this.platforms) {
+            this.physics.add.collider(this.player, this.platforms, null,
+                (player, tile) => player.landsOn(tile.pixelY));
+        }
 
         // Created after the player, so it draws in front of them.
         map.createLayer('foreground', this.tilesets).setPipeline('PixelLight');
@@ -103,7 +117,7 @@ export class Level extends Phaser.Scene {
             .map(l => new Torch(this, l, this.player));
     }
 
-    // Gems, keys and goals (by name, on the 'triggers' layer) and hazards (by class)
+    // Gems, keys and goals (by name, on the 'triggers' layer), hazards and moving platforms (by class)
     createObjects(map) {
         const triggers = map.getObjectLayer('triggers')?.objects ?? [];
         const named = (name) => triggers.filter(obj => obj.name === name);
@@ -113,11 +127,14 @@ export class Level extends Phaser.Scene {
         // A list, so a level could have more than one goal (alternate endings)
         this.goals = named('goal').map(obj => new Goal(this, map, obj, this.player));
 
-        // Hazards can be on any object layer
-        this.hazards = map.objects
-            .flatMap(layer => layer.objects)
-            .filter(obj => obj.type === 'hazard')
+        // Hazards and moving platforms are found by class, on any object layer
+        const allObjects = map.objects.flatMap(layer => layer.objects);
+        this.hazards = allObjects
+            .filter(obj => HAZARD_CLASSES.includes(obj.type))
             .map(obj => new Hazard(this, map, obj, this.player));
+        this.movingPlatforms = allObjects
+            .filter(obj => obj.type === 'moving-platform')
+            .map(obj => new MovingPlatform(this, map, obj, this.player));
     }
 
     // The game renders at 320x180 (see main.js), the map is 320 wide, so it fills the
@@ -134,7 +151,7 @@ export class Level extends Phaser.Scene {
 
     setupControls() {
         this.cursors = this.input.keyboard.createCursorKeys();
-        this.keys = this.input.keyboard.addKeys('W,A,D,SPACE');
+        this.keys = this.input.keyboard.addKeys('W,A,S,D,SPACE');
     }
 
     // Called by a Torch when the player lights it
@@ -187,6 +204,7 @@ export class Level extends Phaser.Scene {
         this.playerGlow.intensity = PLAYER_GLOW.intensity * (1 + PLAYER_PULSE.bright * breath);
         this.lightSystem.update(time);
 
+        this.movingPlatforms.forEach(p => p.update());
         this.player.update(time, this.cursors, this.keys);
     }
 }
