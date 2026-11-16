@@ -1,5 +1,5 @@
 import { PLAYER_FRAME, MOVE_SPEED, JUMP_SPEED, AIR_JUMPS, AIR_JUMP_SPEED, COYOTE_TIME, PLAYER_ANIMS,
-    WALL_SLIDE_SPEED, WALL_JUMP_X, WALL_JUMP_Y, WALL_JUMP_LOCK } from '../config.js';
+    WALL_SLIDE_SPEED, WALL_JUMP_X, WALL_JUMP_Y, WALL_JUMP_LOCK, DROP_TIME } from '../config.js';
 import { createAnims, AnimationController } from '../systems/Animations.js';
 
 export class Player extends Phaser.Physics.Arcade.Sprite {
@@ -15,6 +15,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.lastGrounded = 0;           // last time we were on the ground (for coyote time)
         this.grounded = true;            // on the ground, or left it less than COYOTE_TIME ago
         this.wallJumpLockUntil = 0;      // left/right input is ignored until this time
+        this.dropUntil = 0;              // falling through one-way platforms until this time
+        this.dropping = false;
 
         createAnims(scene, 'player', PLAYER_ANIMS);
         this.animController = new AnimationController(this, 'player');   // also handles facing left/right
@@ -27,6 +29,13 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         const jump  = Phaser.Input.Keyboard.JustDown(cursors.up)
                    || Phaser.Input.Keyboard.JustDown(keys.W)
                    || Phaser.Input.Keyboard.JustDown(keys.SPACE);
+        const down  = cursors.down.isDown || keys.S.isDown;
+
+        // Holding down while standing starts a short drop through one-way platforms
+        if (down && this.body.blocked.down) {
+            this.dropUntil = time + DROP_TIME;
+        }
+        this.dropping = time < this.dropUntil;
 
         // Touching a wall while in the air
         const wallLeft  = this.body.blocked.left  && !this.body.blocked.down;
@@ -76,5 +85,16 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         }
 
         this.animController.update();
+    }
+
+    // One-way platform rule, used by the "platforms" layer and by moving platforms.
+    // Only land if we're falling (compared to the platform), our feet were above its top
+    // last step, and we're not dropping through. top = the platform's top edge,
+    // platformVy = how fast the platform moves up/down (0 for the platforms layer).
+    landsOn(top, platformVy = 0) {
+        const falling = this.body.velocity.y >= platformVy;
+        // 4px of leeway, since a platform moving up gets a little ahead of our feet each step
+        const feetWereAbove = this.body.prev.y + this.body.height <= top + 4;
+        return falling && feetWereAbove && !this.dropping;
     }
 }
