@@ -3,6 +3,7 @@ import { Level1 } from './scenes/Level1.js';
 import { Level2 } from './scenes/Level2.js';
 import { HUD } from './scenes/HUD.js';
 import { Win } from './scenes/Win.js';
+import { GameOver } from './scenes/GameOver.js';
 import { PixelLightPipeline } from './pipelines/PixelLightPipeline.js';
 
 const config = {
@@ -23,7 +24,7 @@ const config = {
         arcade: { gravity: { y: 800 }, fps: 120, debug: false },
     },
     // HUD goes last so it draws on top of the levels
-    scene: [Menu, Level1, Level2, Win, HUD],
+    scene: [Menu, Level1, Level2, Win, GameOver, HUD],
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH

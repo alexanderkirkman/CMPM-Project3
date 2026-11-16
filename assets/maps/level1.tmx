@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="62">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="67">
  <editorsettings>
   <export target="level1.json" format="json"/>
  </editorsettings>
@@ -221,6 +221,18 @@
   <object id="21" name="gem" type="gem" gid="103" x="272" y="64" width="16" height="16">
    <properties>
     <property name="value" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="64" name="spike" type="hazard" gid="184" x="176" y="544" width="16" height="16">
+   <properties>
+    <property name="danger-x" type="bool" value="false"/>
+    <property name="danger-y" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="66" name="spike" type="hazard" gid="184" x="224" y="400" width="16" height="16">
+   <properties>
+    <property name="danger-x" type="bool" value="false"/>
+    <property name="danger-y" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>

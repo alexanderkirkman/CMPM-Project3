@@ -6,6 +6,7 @@ import { Gem } from '../objects/Gem.js';
 import { allKeysCollected, Key, revealAllKeys } from '../objects/Key.js';
 import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE } from '../config.js';
 import { Goal } from '../objects/Goal.js';
+import { Hazard } from '../objects/Hazard.js';
 import { LEVELS } from '../levels.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
@@ -85,10 +86,19 @@ export class Level extends Phaser.Scene {
         this.goal = triggers
             .filter(obj => obj.name === 'goal')
             .map(obj => new Goal(this, map, obj, this.player));
+        // ---- Hazards (objects with the class "hazard", on any object layer) ----
+        this.hazards = map.objects
+            .flatMap(layer => layer.objects)
+            .filter(obj => obj.type === 'hazard')
+            .map(obj => new Hazard(this, map, obj, this.player));
 
         // Run values (gems, see run.js) live in the registry and carry over between levels.
         // Level values (like the keys you're holding) live on the level and start over in
         // create() each time, since this.key etc. are made fresh above.
+
+        // Gems when this attempt started, put back if the player dies
+        this.startGems = this.registry.get('gems');
+        this.dead = false;
 
         // ---- HUD ----
         // The HUD scene draws on top and reads values from the registry
@@ -120,6 +130,20 @@ export class Level extends Phaser.Scene {
     // Called by a Gem when the player picks it up
     addGems(amount) {
         this.registry.inc('gems', amount);   // the HUD updates itself from this
+    }
+
+    // Called by a Hazard when it kills the player
+    onPlayerDeath() {
+        if (this.dead) return;   // only die once, even if two hazards hit at the same time
+        this.dead = true;
+
+        this.registry.inc('lives', -1);
+        if (this.registry.get('lives') <= 0) {
+            this.scene.start('GameOver');
+        } else {
+            this.registry.set('gems', this.startGems);   // gems from this attempt don't count
+            this.scene.restart();
+        }
     }
 
     // Called by Goal on when player touches the goal

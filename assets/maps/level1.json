@@ -294,6 +294,54 @@
                  "width":16,
                  "x":272,
                  "y":64
+                }, 
+                {
+                 "gid":184,
+                 "height":16,
+                 "id":64,
+                 "name":"spike",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"danger-x",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"danger-y",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"hazard",
+                 "visible":true,
+                 "width":16,
+                 "x":176,
+                 "y":544
+                }, 
+                {
+                 "gid":184,
+                 "height":16,
+                 "id":66,
+                 "name":"spike",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"danger-x",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"danger-y",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"hazard",
+                 "visible":true,
+                 "width":16,
+                 "x":224,
+                 "y":400
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1480,7 +1528,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":62,
+ "nextobjectid":67,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.12.2",

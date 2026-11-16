@@ -1,6 +1,6 @@
 import { Counter } from '../ui/Counter.js';
 import { makePixelFont } from '../ui/pixelFont.js';
-import { GEM_FRAME } from '../config.js';
+import { GEM_FRAME, PLAYER_FRAME } from '../config.js';
 
 // Draws the UI on top of the level. It has its own camera, so nothing here scrolls
 // with the map, and nothing uses PixelLight, so it's never darkened.
@@ -14,6 +14,7 @@ export class HUD extends Phaser.Scene {
         makePixelFont(this);
 
         this.addCounter('gems', GEM_FRAME, 4, 10);
+        this.addCounter('lives', PLAYER_FRAME, 4, 28);
     }
 
     // Shows the registry value `key` next to a tile icon and keeps it up to date
