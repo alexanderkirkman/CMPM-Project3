@@ -1,4 +1,5 @@
-import { PLAYER_FRAME, MOVE_SPEED, JUMP_SPEED, AIR_JUMPS, AIR_JUMP_SPEED, COYOTE_TIME } from '../config.js';
+import { PLAYER_FRAME, MOVE_SPEED, JUMP_SPEED, AIR_JUMPS, AIR_JUMP_SPEED, COYOTE_TIME, PLAYER_ANIMS } from '../config.js';
+import { createAnims, AnimationController } from '../systems/Animations.js';
 
 export class Player extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y) {
@@ -12,6 +13,9 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         this.airJumpsLeft = AIR_JUMPS;   // refilled every time we land
         this.lastGrounded = 0;           // last time we were on the ground (for coyote time)
         this.grounded = true;            // on the ground, or left it less than COYOTE_TIME ago
+
+        createAnims(scene, 'player', PLAYER_ANIMS);
+        this.animController = new AnimationController(this, 'player');   // also handles facing left/right
     }
 
     // Called by the level every frame with its keyboard keys
@@ -25,10 +29,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         // Left / right
         if (left) {
             this.setVelocityX(-MOVE_SPEED);
-            this.setFlipX(true);
         } else if (right) {
             this.setVelocityX(MOVE_SPEED);
-            this.setFlipX(false);
         } else {
             this.setVelocityX(0);
         }
@@ -52,5 +54,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
                 this.airJumpsLeft--;
             }
         }
+
+        this.animController.update();
     }
 }
