@@ -22,6 +22,10 @@ export const PLAYER_ANIMS = {
     fall: { frames: [245],      frameRate: 1, repeat: false },
 };
 
+// Camera deadzone: box in the middle of the screen (in pixels; screen is 320x180).
+// The camera only moves once the player leaves this box.
+export const CAMERA_DEADZONE = { width: 32, height: 60 };
+
 // Lighting
 export const AMBIENT_COLOR = 0x101018;   // how dark the level is where no light reaches (0x000000 = pitch black)
 // Player light. Other nice colors: 0xb79cff (soft lavender), 0x7fffd4 (aquamarine)
