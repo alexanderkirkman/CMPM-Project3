@@ -8,7 +8,7 @@ import { PixelLightPipeline } from './pipelines/PixelLightPipeline.js';
 
 const config = {
     type: Phaser.AUTO,
-    title: 'Bane of Darkness',
+    title: "Shadow's Bane",
     description: 'A vertical 2D platformer game that makes fun use of phasers unique lighting and shader system',
     parent: 'game-container',
     width: 320,

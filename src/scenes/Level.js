@@ -7,7 +7,7 @@ import { Key, revealAllKeys, allKeysCollected } from '../objects/Key.js';
 import { Goal } from '../objects/Goal.js';
 import { Spike } from '../objects/Spike.js';
 import { MovingPlatform } from '../objects/MovingPlatform.js';
-import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE } from '../config.js';
+import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE, SOUNDS } from '../config.js';
 import { LEVELS } from '../levels.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
@@ -36,6 +36,12 @@ export class Level extends Phaser.Scene {
         // particles
         this.load.image('smoke10', 'assets/particles/smoke_10.png');
         this.load.image('star04', 'assets/particles/star_04.png');
+        this.load.image('smoke04', 'assets/particles/smoke_04.png');
+
+        // sound effects (the list is SOUNDS in config.js)
+        for (const name in SOUNDS) {
+            this.load.audio(name, 'assets/audio/' + SOUNDS[name].file);
+        }
     }
 
     create() {
@@ -171,6 +177,7 @@ export class Level extends Phaser.Scene {
     onPlayerDeath() {
         if (this.dead) return;   // only die once, even if two spikes hit at the same time
         this.dead = true;
+        this.sound.play('death', { volume: SOUNDS.death.volume });
 
         this.registry.inc('lives', -1);
         if (this.registry.get('lives') <= 0) {
