@@ -1,4 +1,5 @@
 import { getProp } from './TileObject.js';
+import { SOUNDS } from '../config.js';
 
 // A torch from Tiled (an object with the class "torch"). LightSystem makes its light.
 // It starts unlit if its "active" property is false, and lights up when the player touches it.
@@ -30,6 +31,8 @@ export class Torch {
         this.lit = true;
         this.light.on = true;
 
+        this.scene.sound.play('torch', { volume: SOUNDS.torch.volume });
+
         // Puff of smoke to show the torch catching
         const particles = this.scene.add.particles(0, 0, 'smoke10', {
             scale: { start: 0.01, end: 0.02, random: true },
@@ -42,6 +45,7 @@ export class Torch {
             lifespan: { min: 150, max: 250 },
         });
         particles.setPipeline('PixelLight');
+        particles.once('complete', () => particles.destroy());   // remove it once every puff is gone
     }
 }
 

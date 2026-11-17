@@ -17,6 +17,8 @@ You do need a local server, though. If you just double-click `index.html` the br
 | --- | --- |
 | Move | Left/Right arrows or A/D |
 | Jump | Up arrow, W, or Space |
+| Wall jump | Jump while touching a wall in the air |
+| Drop through a platform | Down arrow or S while standing on it |
 
 Hold toward a wall in the air to slide down it slowly, and press jump while on a wall to jump up and away from it.
 
@@ -26,7 +28,7 @@ Hold toward a wall in the air to slide down it slowly, and press jump while on a
 index.html                  loads phaser.js and src/main.js
 phaser.js                   Phaser 3.90.0
 src/main.js                 game config (size, physics, registers the light shader)
-src/config.js               tuning numbers: tile frames, player movement, animations, camera, lighting
+src/config.js               tuning numbers: tile frames, player movement, platforms, sounds, animations, camera, lighting
 src/levels.js               list of levels; the menu and Level.js both read it
 src/run.js                  values that carry over between levels (gems, lives) and newRun()
 src/scenes/Menu.js          level select menu; picking a level starts a new run
@@ -37,22 +39,34 @@ src/scenes/HUD.js           gem and lives counters drawn on top of the level
 src/scenes/Win.js           shown after the last level, with the gem total
 src/scenes/GameOver.js      shown when you run out of lives
 src/objects/TileObject.js   base class for Tiled tile objects, plus tileInfo() and getProp()
-src/objects/Player.js       the player: movement, jump, coyote time, wall slide, wall jump
+src/objects/Player.js       the player: movement, jump, coyote time, wall slide, wall jump, drop-through, landing dust
 src/objects/Torch.js        torches: light up on touch, smoke puff, allTorchesLit()
 src/objects/Gem.js          gems: collect on touch, star burst, adds to the gem count
 src/objects/Key.js          keys: hidden until every torch is lit, then collectable
 src/objects/Goal.js         goal: with the key, goes to the next level (or Win)
 src/objects/Spike.js        spikes; danger-x/danger-y pick which sides kill
-src/systems/LightSystem.js  turns objects on the "lights" layer into lights
+src/objects/MovingPlatform.js   one-way platforms that move back and forth
+src/systems/LightSystem.js  turns "light" and "torch" objects into lights
 src/systems/Animations.js   creates the player animations and picks idle/run/jump/fall
 src/ui/Counter.js           icon + "x N" counter used by the HUD
 src/ui/pixelFont.js         tiny pixel font for the HUD numbers
 src/pipelines/PixelLightPipeline.js   the pixel-art lighting shader
 assets/images/              the two tilesheets (16x16 tiles)
 assets/particles/           particle images in use (copied from kenney_particle-pack)
+assets/audio/               sound effects in use (copied from the kenney audio packs)
 assets/maps/levelN.tmx      the Tiled files you edit
 assets/maps/levelN.json     the exports the game actually loads
+assets/kenney_particle-pack/    full particle pack, kept as a library to pick from
+assets/kenney_impact-sounds/    full audio pack, kept as a library to pick from
+assets/kenney_digital-audio/    full audio pack, kept as a library to pick from
+assets/kenney_sci-fi-sounds/    full audio pack, kept as a library to pick from
 ```
+
+The game only loads files from `assets/audio/` and `assets/particles/`. The Kenney packs stay untouched (with their license files) so you can pick new files from them later.
+
+To add or swap a sound: copy an .ogg from one of the audio packs into `assets/audio/` and give it a short name (like `door.ogg`). Then add or change its line in `SOUNDS` in `src/config.js`, for example `door: { file: 'door.ogg', volume: 0.5 },`. Every sound in `SOUNDS` is loaded automatically, and you play it with `this.scene.sound.play('door', { volume: SOUNDS.door.volume })`.
+
+To add or swap a particle image: copy a .png from `kenney_particle-pack/PNG (Transparent)/` into `assets/particles/`. Then add or change its `this.load.image(...)` line in `preload()` in `src/scenes/Level.js`, and use that key in `add.particles(...)`. The images are 512px, so particles need a small scale (around 0.02 to 0.08).
 
 To add a level: make `assets/maps/level3.json`, copy `Level2.js` to `Level3.js` (change the names to `Level3` / `level3`), and add one line to `src/levels.js`.
 
@@ -73,10 +87,13 @@ Layers, in draw order:
 - `background`: tiles behind everything.
 - `ground`: the solid stuff. Every non-empty tile here gets collision.
 - `decoration`: non-solid detail, drawn behind the player.
+- `platforms` (optional): one-way platforms. You can jump up through them and land on top, and pressing Down while standing on one drops you through.
 - `foreground`: drawn in front of the player.
-- `triggers` (object layer): the goal, key, and gems. The code finds objects by their Class (`gem`, `key`, `goal`, `spike`, `torch`...) on any object layer, so layer names are just for keeping the map organized.
+- `triggers` (object layer): the goal, key, and gems. The code finds objects by their Class (`gem`, `key`, `goal`, `spike`, `moving-platform`, `torch`...) on any object layer, so layer names are just for keeping the map organized.
 - `lights` (object layer): every light source in the level. See below.
 - `spawns` (object layer): a point with the Class `player` where the player starts. The game crashes without it.
+
+Moving platforms are tile objects with the Class `moving-platform`. Their custom properties are `move-x` and `move-y` (how far they move from where they were placed, in pixels), `speed` (pixels per second, default `PLATFORM_SPEED` in config.js) and `width-tiles` (how many tiles wide, default 1). They're one-way like the `platforms` layer.
 
 ## Adding lights
 
@@ -105,7 +122,7 @@ Anything that should be affected by lighting needs `.setPipeline('PixelLight')`.
 
 Constants are at the top of each file with comments:
 
-- `src/config.js`: movement and jump speeds, how many air jumps, coyote time, ambient darkness, the player's glow.
+- `src/config.js`: movement and jump speeds, how many air jumps, coyote time, wall slide and wall jump, drop-through time, platform speed, sound files and volumes, landing dust, ambient darkness, the player's glow.
 - `src/systems/LightSystem.js`: how the flicker and pulse effects behave.
 - `src/pipelines/PixelLightPipeline.js`: how the light looks (number of brightness steps, dithering, falloff, the white-hot center).
 - `src/main.js`: game resolution, gravity, `maxLights`.
@@ -123,5 +140,7 @@ Constants are at the top of each file with comments:
 - [Phaser](https://phaser.io) 3.90.0
 - [Tiled](https://www.mapeditor.org) for level editing
 - Tiles from Kenney's [1-Bit Platformer Pack](https://kenney.nl/assets/1-bit-platformer-pack) (CC0)
+- Particles from Kenney's [Particle Pack](https://kenney.nl/assets/particle-pack) (CC0)
+- Sounds from Kenney's [Impact Sounds](https://kenney.nl/assets/impact-sounds), [Digital Audio](https://kenney.nl/assets/digital-audio) and [Sci-Fi Sounds](https://kenney.nl/assets/sci-fi-sounds) (CC0)
 
 Code is MIT licensed, see `LICENSE`.

@@ -10,7 +10,7 @@ export const GEM_FRAME = 102;      // gem tile, used for the gem counter icon
 export const MOVE_SPEED = 100;      // pixels per second, left/right
 export const JUMP_SPEED = 300;      // initial upward speed when jumping
 export const AIR_JUMPS = 0;         // extra jumps allowed in mid-air (0 = off, 1 = double jump, 2 = triple...)
-export const AIR_JUMP_SPEED = 300;  // mid-air jumps are a bit weaker than the first jump
+export const AIR_JUMP_SPEED = 300;  // upward speed of a mid-air jump (only used if AIR_JUMPS > 0)
 export const COYOTE_TIME = 100;     // ms after leaving a ledge where a jump still counts as a ground jump
 
 // Wall slide + wall jump
@@ -22,6 +22,23 @@ export const WALL_JUMP_LOCK = 150;    // ms after a wall jump where left/right i
 // One-way platforms
 export const DROP_TIME = 200;        // ms the player falls through platforms after pressing down on one
 export const PLATFORM_SPEED = 40;    // default moving platform speed (pixels per second)
+
+// ---- Sound + dust ----
+// Every sound effect: its file in assets/audio and its volume (0 = silent, 1 = full).
+// To swap a sound, copy a new file from one of the kenney packs into assets/audio and change it here.
+export const SOUNDS = {
+    jump:     { file: 'jump.ogg',     volume: 0.4 },
+    wallJump: { file: 'wallJump.ogg', volume: 0.4 },
+    land:     { file: 'land.ogg',     volume: 0.5 },
+    gem:      { file: 'gem.ogg',      volume: 0.5 },
+    key:      { file: 'key.ogg',      volume: 0.6 },
+    death:    { file: 'death.ogg',    volume: 0.7 },
+    torch:    { file: 'torch.ogg',    volume: 0.5 },
+};
+export const LAND_MIN_AIR_TIME = 250;   // ms in the air before touching down counts as a landing
+export const HARD_LANDING_SPEED = 300;  // falling at least this fast makes a bigger dust puff
+export const DUST_SCALE = 0.02;         // dust puff size (the image is 512px, so 0.02 is about 10px)
+export const DUST_HARD_SCALE = 0.035;   // dust puff size on a hard landing
 
 // ---- Player animations ----
 // Frames from tiles_transparent; these face right, flipped for left.

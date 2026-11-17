@@ -1,4 +1,5 @@
 import { TileObject, getProp } from './TileObject.js';
+import { SOUNDS } from '../config.js';
 
 // A gem from Tiled (a tile object with the class "gem").
 // Touching it collects it and adds its "value" property (default 1) to the run's gem count.
@@ -14,6 +15,7 @@ export class Gem extends TileObject {
         // Turn off the body and hide the sprite, so it can't be picked up twice
         this.disableBody(true, true);
         this.scene.addGems(this.value);
+        this.scene.sound.play('gem', { volume: SOUNDS.gem.volume });
 
         // Little burst of gold/white stars. No PixelLight, so it shows up in the dark.
         const burst = this.scene.add.particles(this.x, this.y, 'star04', {
