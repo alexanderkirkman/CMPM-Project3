@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="9">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="28">
  <editorsettings>
   <export target="level2.json" format="json"/>
  </editorsettings>
@@ -9,7 +9,7 @@
  <tileset firstgid="401" name="monochrome_tilemap_transparent_packed" tilewidth="16" tileheight="16" tilecount="400" columns="20">
   <image source="../../../../Shadow's Bane/kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_transparent_packed.png" width="320" height="320"/>
  </tileset>
- <layer id="1" name="background" width="20" height="45" visible="0">
+ <layer id="1" name="background" width="20" height="45" visible="0" locked="1">
   <data encoding="csv">
 379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,
 379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,379,
@@ -66,43 +66,43 @@
 616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
 616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
 616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,0,776,776,776,776,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,648,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,648,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,650,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,668,630,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,648,0,616,618,
+616,618,0,0,589,0,0,0,0,0,0,0,0,0,0,0,648,0,616,618,
+616,618,0,0,589,0,0,0,0,776,776,776,776,0,0,0,668,669,616,618,
+616,618,0,0,589,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,0,0,609,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,597,597,597,597,598,0,0,0,0,0,0,0,0,0,0,596,616,618,
+616,618,0,0,0,0,618,0,0,0,0,0,0,0,0,0,0,616,616,618,
+616,618,0,0,0,0,618,0,0,0,0,0,0,0,0,0,0,616,616,618,
+616,618,637,637,637,637,638,0,0,0,0,0,0,0,0,0,0,616,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,488,489,490,0,0,636,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,508,0,510,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,528,529,530,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,590,590,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,0,0,776,776,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,776,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,0,0,0,776,776,0,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,0,0,0,776,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,776,776,776,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,0,0,0,0,0,0,776,776,776,776,0,0,0,0,0,0,616,618,
 616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
 616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,776,776,776,776,776,0,0,0,776,776,776,0,0,0,616,618,
-616,618,0,0,0,0,776,0,0,0,0,776,0,0,0,776,0,0,616,618,
-616,618,0,0,0,0,776,0,0,0,0,776,0,0,0,776,0,0,616,618,
-616,618,0,0,0,0,776,0,0,0,0,776,0,0,0,776,0,0,616,618,
-616,618,0,0,0,0,776,0,0,0,0,0,776,776,776,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,776,776,776,0,759,759,0,776,776,776,0,0,0,616,618,
-616,618,0,0,0,776,0,0,776,0,0,776,0,0,0,776,0,0,616,618,
-616,618,0,0,0,776,0,0,776,0,0,776,0,0,0,776,0,0,616,618,
-616,618,0,0,0,776,0,0,776,0,0,776,0,0,0,776,0,0,616,618,
-616,618,0,0,0,776,776,776,0,0,0,0,776,776,776,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
-616,618,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,0,0,0,776,776,776,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,0,0,0,776,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
+616,618,0,0,0,776,0,0,0,0,0,0,0,0,0,0,0,0,616,618,
 616,600,597,597,597,597,597,597,597,597,597,597,597,597,597,597,597,597,660,618,
 636,637,637,637,637,637,637,637,637,637,637,637,637,637,637,637,637,637,637,638
 </data>
@@ -125,7 +125,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,542,543,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -205,53 +205,187 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="5" name="triggers" locked="1"/>
- <objectgroup id="6" name="lights">
-  <object id="3" name="fruit" type="light" gid="509" x="96" y="496" width="16" height="16">
+ <layer id="9" name="platforms" width="20" height="45" locked="1">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,562,563,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,582,582,582,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,446,446,446,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,582,582,582,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="5" name="triggers">
+  <object id="11" name="goal" type="goal" gid="790" x="256" y="96" width="16" height="16"/>
+  <object id="14" name="key" type="key" gid="497" x="272" y="496" width="16" height="16"/>
+  <object id="16" name="gem" type="gem" gid="503" x="272" y="256" width="16" height="16">
+   <properties>
+    <property name="value" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="18" name="bouncePad" type="bouncePad" gid="564" x="240" y="688" width="16" height="16">
+   <properties>
+    <property name="bounceForce" type="int" value="540"/>
+   </properties>
+  </object>
+  <object id="20" name="bouncePad" type="bouncePad" gid="564" x="48" y="576" width="16" height="16">
+   <properties>
+    <property name="bounceForce" type="int" value="425"/>
+   </properties>
+  </object>
+  <object id="23" name="bouncePad" type="bouncePad" gid="564" x="192" y="208" width="16" height="16">
+   <properties>
+    <property name="bounceForce" type="int" value="400"/>
+   </properties>
+  </object>
+  <object id="22" name="spike" type="spike" gid="567" x="272" y="352" width="16" height="16">
+   <properties>
+    <property name="danger-x" type="bool" value="false"/>
+    <property name="danger-y" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="lights" locked="1">
+  <object id="3" name="fruit" type="light" gid="509" x="32" y="64" width="16" height="16">
    <properties>
     <property name="color" type="color" value="#ffff33ff"/>
     <property name="effect" value="none"/>
     <property name="radius" type="int" value="75"/>
    </properties>
   </object>
-  <object id="4" name="fruit" type="light" gid="509" x="208" y="528" width="16" height="16">
+  <object id="4" name="fruit" type="light" gid="509" x="64" y="48" width="16" height="16">
    <properties>
     <property name="color" type="color" value="#ffff33ff"/>
     <property name="effect" value="none"/>
     <property name="radius" type="int" value="75"/>
    </properties>
   </object>
-  <object id="5" name="fruit" type="light" gid="509" x="208" y="624" width="16" height="16">
+  <object id="5" name="fruit" type="light" gid="509" x="208" y="352" width="16" height="16">
    <properties>
     <property name="color" type="color" value="#ffff33ff"/>
     <property name="effect" value="none"/>
     <property name="radius" type="int" value="75"/>
    </properties>
   </object>
-  <object id="6" name="fruit" type="light" gid="509" x="80" y="624" width="16" height="16">
+  <object id="6" name="fruit" type="light" gid="509" x="64" y="96" width="16" height="16">
    <properties>
     <property name="color" type="color" value="#ffff33ff"/>
     <property name="effect" value="none"/>
     <property name="radius" type="int" value="75"/>
    </properties>
   </object>
-  <object id="7" name="fruit" type="light" gid="509" x="128" y="624" width="16" height="16">
+  <object id="7" name="fruit" type="light" gid="509" x="32" y="48" width="16" height="16">
    <properties>
     <property name="color" type="color" value="#ffff33ff"/>
     <property name="effect" value="none"/>
     <property name="radius" type="int" value="75"/>
    </properties>
   </object>
-  <object id="8" name="fruit" type="light" gid="509" x="96" y="560" width="16" height="16">
+  <object id="8" name="fruit" type="light" gid="509" x="48" y="48" width="16" height="16">
    <properties>
     <property name="color" type="color" value="#ffff33ff"/>
     <property name="effect" value="none"/>
     <property name="radius" type="int" value="75"/>
+   </properties>
+  </object>
+  <object id="9" name="torch" type="torch" gid="649" x="160" y="592" width="16" height="16">
+   <properties>
+    <property name="active" type="bool" value="false"/>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="10" name="torch" type="torch" gid="649" x="48" y="448" width="16" height="16">
+   <properties>
+    <property name="active" type="bool" value="false"/>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="21" name="torch" type="torch" gid="649" x="96" y="640" width="16" height="16">
+   <properties>
+    <property name="active" type="bool" value="false"/>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="24" name="torch" type="torch" gid="649" x="176" y="496" width="16" height="16">
+   <properties>
+    <property name="active" type="bool" value="false"/>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="25" name="torch" type="torch" gid="649" x="256" y="496" width="16" height="16">
+   <properties>
+    <property name="active" type="bool" value="false"/>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="26" name="torch" type="torch" gid="649" x="224" y="96" width="16" height="16">
+   <properties>
+    <property name="active" type="bool" value="false"/>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
+   </properties>
+  </object>
+  <object id="27" name="torch" type="torch" gid="649" x="144" y="208" width="16" height="16">
+   <properties>
+    <property name="active" type="bool" value="false"/>
+    <property name="color" type="color" value="#ffff8c32"/>
+    <property name="effect" value="flicker"/>
+    <property name="radius" type="int" value="50"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="7" name="spawns" visible="0" locked="1">
-  <object id="1" name="player" type="player" x="160" y="576">
+  <object id="1" name="player" type="player" x="64" y="688">
    <point/>
   </object>
  </objectgroup>

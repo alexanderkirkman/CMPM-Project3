@@ -134,6 +134,7 @@ export class Level extends Phaser.Scene {
         this.goals = make('goal', Goal);
         this.spikes = make('spike', Spike);
         this.movingPlatforms = make('moving-platform', MovingPlatform);
+        this.bouncePads = make('bouncePad', BouncePad);
     }
 
     // Every Tiled object with this class, on any object layer.

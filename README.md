@@ -46,6 +46,7 @@ src/objects/Key.js          keys: hidden until every torch is lit, then collecta
 src/objects/Goal.js         goal: with the key, goes to the next level (or Win)
 src/objects/Spike.js        spikes; danger-x/danger-y pick which sides kill
 src/objects/MovingPlatform.js   one-way platforms that move back and forth
+src/objects/BouncePad.js    bouncePads: bounceForce determines the velocity of the bounce (Unique mechanic for Level 2) 
 src/systems/LightSystem.js  turns "light" and "torch" objects into lights
 src/systems/Animations.js   creates the player animations and picks idle/run/jump/fall
 src/ui/Counter.js           icon + "x N" counter used by the HUD
