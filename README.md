@@ -22,12 +22,12 @@ Levels unlock in order: only Level 1 starts unlocked, and finishing a level unlo
 
 | # | Name | Made by | Unique mechanic |
 | --- | --- | --- | --- |
-| 1 | LEVEL 1 | TODO | TODO [guess: the basic torch and key puzzle, with no hazards] |
+| 1 | LEVEL 1 | Alex | basic torch and key puzzle, with no hazards |
 | 2 | LEVEL 2 | TODO | TODO [guess: bounce pads that launch you upward] |
-| 3 | LEVEL 3 | TODO | TODO [guess: platforms moving side to side] |
-| 4 | LEVEL 4 | TODO | TODO [guess: a platform moving up and down] |
-| 5 | LEVEL 5 | TODO | TODO [guess: a long spike gauntlet] |
-| 6 | LEVEL 6 | TODO | TODO [guess: spikes combined with horizontal and vertical moving platforms] |
+| 3 | LEVEL 3 | Alex | platforms moving side to side |
+| 4 | LEVEL 4 | Alex | a platform moving up and down |
+| 5 | LEVEL 5 | Alex | a long spike gauntlet |
+| 6 | LEVEL 6 | Alex | spikes combined with horizontal and vertical moving platforms |
 
 ### Bonus features
 
