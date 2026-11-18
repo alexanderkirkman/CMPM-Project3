@@ -53,7 +53,7 @@
          "name":"background",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":20,
          "x":0,
          "y":0
@@ -361,60 +361,7 @@
          "draworder":"topdown",
          "id":11,
          "name":"hazards",
-         "objects":[
-                {
-                 "gid":184,
-                 "height":16,
-                 "id":68,
-                 "name":"spike",
-                 "opacity":1,
-                 "properties":[
-                        {
-                         "name":"danger-x",
-                         "type":"bool",
-                         "value":false
-                        }, 
-                        {
-                         "name":"danger-y",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"spike",
-                 "visible":true,
-                 "width":16,
-                 "x":224,
-                 "y":400
-                }, 
-                {
-                 "gid":64,
-                 "height":16,
-                 "id":69,
-                 "name":"platform",
-                 "opacity":1,
-                 "properties":[
-                        {
-                         "name":"move-x",
-                         "type":"int",
-                         "value":40
-                        }, 
-                        {
-                         "name":"move-y",
-                         "type":"int",
-                         "value":0
-                        }, 
-                        {
-                         "name":"speed",
-                         "type":"int",
-                         "value":20
-                        }],
-                 "rotation":0,
-                 "type":"moving-platform",
-                 "visible":true,
-                 "width":16,
-                 "x":176,
-                 "y":544
-                }],
+         "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,

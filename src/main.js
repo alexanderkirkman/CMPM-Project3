@@ -5,8 +5,10 @@ import { Level2 } from './scenes/Level2.js';
 import { HUD } from './scenes/HUD.js';
 import { Win } from './scenes/Win.js';
 import { GameOver } from './scenes/GameOver.js';
+import { Pause } from './scenes/Pause.js';
 import { PixelLightPipeline } from './pipelines/PixelLightPipeline.js';
 import { LEVELS } from './levels.js';
+import { newRun } from './run.js';
 
 // Levels that have their own class. Every other level is a plain Level scene.
 const levelClasses = { Level1, Level2 };
@@ -36,12 +38,16 @@ const config = {
         arcade: { gravity: { y: 800 }, fps: 120, debug: false },
     },
     // The first scene in the list runs first: the Menu, which starts the chosen level.
-    // HUD goes last so it draws on top of the levels.
-    scene: [Menu, ...levelScenes, Win, GameOver, HUD],
+    // HUD and Pause go last so they draw on top of the levels.
+    scene: [Menu, ...levelScenes, Win, GameOver, HUD, Pause],
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
 }
 
-new Phaser.Game(config);
+const game = new Phaser.Game(config);
+
+// Starting progress, set once when the page loads
+newRun(game.registry);
+game.registry.set('unlockedLevel', 0);   // only Level 1 (index 0 in LEVELS) starts unlocked

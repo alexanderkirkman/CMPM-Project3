@@ -1,9 +1,10 @@
-// Values that carry over from level to level during one run (one play from the menu).
-// They live in the game registry, so every scene can read them.
+// Values that carry over from level to level, and back through the menu.
+// They live in the game registry, so every scene can read them. Nothing is saved to
+// disk, so reloading the page starts over.
 // To add one (like a power-up), give it a starting value here.
 export const RUN_DEFAULTS = {
     gems: 0,
-    lives: 3,
+    lives: 5,
 };
 
 // Start a new run: put every default back into the registry

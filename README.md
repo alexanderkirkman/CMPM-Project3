@@ -19,8 +19,18 @@ You do need a local server, though. If you just double-click `index.html` the br
 | Jump | Up arrow, W, or Space |
 | Wall jump | Jump while touching a wall in the air |
 | Drop through a platform | Down arrow or S while standing on it |
+| Pause | Esc (Resume / Quit to Menu) |
+| Pause menu | Up/Down arrows or W/S to choose, Enter or Space to confirm, Esc to resume |
 
 Hold toward a wall in the air to slide down it slowly, and press jump while on a wall to jump up and away from it.
+
+## Progress
+
+Levels unlock one after another. Only Level 1 starts unlocked, and finishing a level unlocks the next one. Locked levels are dimmed in the menu. Finishing the last level that has a map goes to the Win screen.
+
+Gems, lives and unlocked levels are kept between menu visits. Nothing is saved to disk, so reloading the page starts over. Quitting a level from the pause menu puts your gems back to what they were when that level started. A game over resets lives and gems, but unlocked levels stay unlocked.
+
+To test any level, set `DEV_UNLOCK_ALL` to `true` in `src/config.js`. This unlocks every level in the menu.
 
 ## Folder layout
 
@@ -31,13 +41,14 @@ src/main.js                 game config (size, physics, registers the light shad
 src/config.js               tuning numbers: tile frames, player movement, platforms, sounds, animations, camera, lighting
 src/levels.js               list of levels; the menu and Level.js both read it
 src/run.js                  values that carry over between levels (gems, lives) and newRun()
-src/scenes/Menu.js          level select menu; picking a level starts a new run
+src/scenes/Menu.js          level select menu; locked levels are dimmed
 src/scenes/Level.js         base level scene: loads the map, player, lights, objects, camera, controls
 src/scenes/Level1.js        level 1 (just picks its map; add level-specific stuff here)
 src/scenes/Level2.js        level 2
 src/scenes/HUD.js           gem and lives counters drawn on top of the level
-src/scenes/Win.js           shown after the last level, with the gem total
+src/scenes/Win.js           shown after the last level that has a map, with the gem total
 src/scenes/GameOver.js      shown when you run out of lives
+src/scenes/Pause.js         pause menu on top of a level: Resume or Quit to Menu
 src/objects/TileObject.js   base class for Tiled tile objects, plus tileInfo() and getProp()
 src/objects/Player.js       the player: movement, jump, coyote time, wall slide, wall jump, drop-through, landing dust
 src/objects/Torch.js        torches: light up on touch, smoke puff, allTorchesLit()

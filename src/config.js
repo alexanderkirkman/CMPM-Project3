@@ -1,5 +1,8 @@
 // Tuning numbers for the game, grouped by what they affect.
 
+// ---- Testing ----
+export const DEV_UNLOCK_ALL = true;   // true = every level is unlocked and selectable in the menu
+
 // ---- Tiles ----
 // Frame numbers in the tilesheet. In Tiled, click a tile in the Tilesets panel; the "ID"
 // shown in the Properties panel is this number (for the first tileset, ID = frame index).

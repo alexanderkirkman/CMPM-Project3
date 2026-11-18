@@ -11,7 +11,7 @@
  <tileset firstgid="401" name="monochrome_tilemap_packed" tilewidth="16" tileheight="16" tilecount="400" columns="20">
   <image source="../images/monochrome_tilemap_packed.png" width="320" height="320"/>
  </tileset>
- <layer id="4" name="background" width="20" height="45">
+ <layer id="4" name="background" width="20" height="45" visible="0">
   <data encoding="csv">
 779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,
 779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,779,

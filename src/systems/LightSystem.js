@@ -19,7 +19,7 @@
 //
 // Requires: scene.lights.enable() has been called (see Level.js).
 
-import { tileInfo, getProp } from '../objects/TileObject.js';
+import { tileInfo, applyRotationAndFlip, getProp } from '../objects/TileObject.js';
 
 // ---- Flicker ("fire") tuning ----
 const FLICKER_SPEED = 2.5;    // how fast the flame changes (higher = more frantic)
@@ -52,11 +52,13 @@ export class LightSystem {
         let x, y, sprite = null;
 
         if (obj.gid) {
-            // Tile object: draw the tile as a sprite
+            // Tile object: draw the tile as a sprite. x, y is its center, even when rotated,
+            // so the light sits in the middle of it.
             const tile = tileInfo(map, obj);
             x = tile.x;
             y = tile.y;
             sprite = this.scene.add.sprite(x, y, tile.key, tile.frame);
+            applyRotationAndFlip(sprite, obj);
             sprite.setPipeline('PixelLight');
         } else {
             // Point (width/height 0) or rectangle: use its center, no sprite.

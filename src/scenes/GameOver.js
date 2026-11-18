@@ -1,3 +1,5 @@
+import { newRun } from '../run.js';
+
 // Shown when the player runs out of lives. Enter or Space goes back to the menu.
 export class GameOver extends Phaser.Scene {
     constructor() {
@@ -5,6 +7,8 @@ export class GameOver extends Phaser.Scene {
     }
 
     create() {
+        newRun(this.registry);   // lives and gems start over, unlocked levels stay unlocked
+
         this.add.text(160, 70, 'GAME OVER', { fontSize: '32px', fill: '#d03030' })
             .setOrigin(0.5)
             .preFX.addGlow(0xd03030, 2);
