@@ -69,7 +69,7 @@ To add or swap a sound: copy an .ogg from one of the audio packs into `assets/au
 
 To add or swap a particle image: copy a .png from `kenney_particle-pack/PNG (Transparent)/` into `assets/particles/`. Then add or change its `this.load.image(...)` line in `preload()` in `src/scenes/Level.js`, and use that key in `add.particles(...)`. The images are 512px, so particles need a small scale (around 0.02 to 0.08).
 
-To add a level: make `assets/maps/level3.json`, copy `Level2.js` to `Level3.js` (change the names to `Level3` / `level3`), and add one line to `src/levels.js`.
+To add a level: make its map, `assets/maps/levelN.json`. Levels 1 to 10 are already on the menu. Only add a `LevelN.js` class if the level needs its own code (copy `Level2.js`, change the names, and add the class to `levelClasses` in `src/main.js`).
 
 ## Editing levels in Tiled
 

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="20" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="70">
- <editorsettings>
-  <export target="level1.json" format="json"/>
- </editorsettings>
  <tileset firstgid="1" name="monochrome_tilemap_transparent_packed" tilewidth="16" tileheight="16" tilecount="400" columns="20">
   <image source="../images/monochrome_tilemap_transparent_packed.png" width="320" height="320"/>
   <tile id="248">
@@ -273,21 +270,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="11" name="hazards">
-  <object id="68" name="spike" type="spike" gid="184" x="224" y="400" width="16" height="16">
-   <properties>
-    <property name="danger-x" type="bool" value="false"/>
-    <property name="danger-y" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="69" name="platform" type="moving-platform" gid="64" x="176" y="544" width="16" height="16">
-   <properties>
-    <property name="move-x" type="int" value="40"/>
-    <property name="move-y" type="int" value="0"/>
-    <property name="speed" type="int" value="20"/>
-   </properties>
-  </object>
- </objectgroup>
+ <objectgroup id="11" name="hazards"/>
  <objectgroup id="7" name="lights">
   <object id="11" name="torch" type="torch" gid="249" x="176" y="624" width="16" height="16">
    <properties>

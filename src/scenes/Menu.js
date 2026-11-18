@@ -13,11 +13,14 @@ export class Menu extends Phaser.Scene {
             this.registry.events.off('changedata-levelSelect');
         });
 
-        // One text per level, two per row
+        // One text per level, five per row. The number goes under "LEVEL" so it all fits.
         this.levelTexts = LEVELS.map((level, i) => {
-            const x = 40 + (i % 2) * 156;
-            const y = 90 + Math.floor(i / 2) * 30;
-            return this.add.text(x, y, level.name, { fontSize: '20px', fill: '#FFF', align: 'center' });
+            const x = 32 + (i % 5) * 64;
+            const y = 65 + Math.floor(i / 5) * 50;
+            const label = level.name.replace(' ', '\n');
+            const text = this.add.text(x, y, label, { fontSize: '14px', fill: '#FFF', align: 'center' });
+            text.setOrigin(0.5);
+            return text;
         });
 
         // Use of registry isn't strictly necessary but makes use of events
@@ -30,7 +33,19 @@ export class Menu extends Phaser.Scene {
 
         // Set up input
         this.cursors = this.input.keyboard.createCursorKeys();
-        this.keys = this.input.keyboard.addKeys('A,D,SPACE,ENTER');
+        this.keys = this.input.keyboard.addKeys('A,D');
+
+        // Start selected level
+        // event.repeat is true when the key is just being held down from the last screen,
+        // so it only counts a fresh press
+        const startLevel = (event) => {
+            if (!event.repeat) {
+                newRun(this.registry); // fresh run: gems, lives etc. back to their defaults
+                this.scene.start(LEVELS[this.registry.get('levelSelect')].key);
+            }
+        };
+        this.input.keyboard.on('keydown-ENTER', startLevel);
+        this.input.keyboard.on('keydown-SPACE', startLevel);
     }
 
     // Adds glow to the selected level text and removes it from the rest.
@@ -44,7 +59,6 @@ export class Menu extends Phaser.Scene {
     }
 
     update() {
-        const confirm = Phaser.Input.Keyboard.JustDown(this.keys.SPACE) || Phaser.Input.Keyboard.JustDown(this.keys.ENTER);
         const left  = Phaser.Input.Keyboard.JustDown(this.cursors.left)  || Phaser.Input.Keyboard.JustDown(this.keys.A);
         const right = Phaser.Input.Keyboard.JustDown(this.cursors.right) || Phaser.Input.Keyboard.JustDown(this.keys.D);
 
@@ -53,12 +67,6 @@ export class Menu extends Phaser.Scene {
             this.registry.inc('levelSelect', -1);
         } else if (right && this.registry.get('levelSelect') < LEVELS.length - 1) {
             this.registry.inc('levelSelect', 1);
-        }
-
-        // Start selected level
-        if (confirm) {
-            newRun(this.registry); // fresh run: gems, lives etc. back to their defaults
-            this.scene.start(LEVELS[this.registry.get('levelSelect')].key);
         }
     }
 }
