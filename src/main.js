@@ -1,10 +1,23 @@
 import { Menu } from './scenes/Menu.js';
+import { Level } from './scenes/Level.js';
 import { Level1 } from './scenes/Level1.js';
 import { Level2 } from './scenes/Level2.js';
 import { HUD } from './scenes/HUD.js';
 import { Win } from './scenes/Win.js';
 import { GameOver } from './scenes/GameOver.js';
 import { PixelLightPipeline } from './pipelines/PixelLightPipeline.js';
+import { LEVELS } from './levels.js';
+
+// Levels that have their own class. Every other level is a plain Level scene.
+const levelClasses = { Level1, Level2 };
+
+const levelScenes = LEVELS.map(level => {
+    const LevelClass = levelClasses[level.key];
+    if (LevelClass) {
+        return new LevelClass();
+    }
+    return new Level(level.key, level.key.toLowerCase());   // Level3 uses level3.json
+});
 
 const config = {
     type: Phaser.AUTO,
@@ -24,7 +37,7 @@ const config = {
     },
     // The first scene in the list runs first: the Menu, which starts the chosen level.
     // HUD goes last so it draws on top of the levels.
-    scene: [Menu, Level1, Level2, Win, GameOver, HUD],
+    scene: [Menu, ...levelScenes, Win, GameOver, HUD],
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH

@@ -9,7 +9,7 @@ import { Spike } from '../objects/Spike.js';
 import { BouncePad } from '../objects/BouncePad.js';
 import { MovingPlatform } from '../objects/MovingPlatform.js';
 import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE, SOUNDS } from '../config.js';
-import { LEVELS } from '../levels.js';
+import { LEVELS, isLevelAvailable } from '../levels.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
 // and map name; they can override create()/update() to add their own mechanics.
@@ -46,7 +46,22 @@ export class Level extends Phaser.Scene {
     }
 
     create() {
+        // If the map file didn't load, go back to the menu instead of crashing
+        if (!this.cache.tilemap.exists(this.mapName)) {
+            console.error(`Missing map file: assets/maps/${this.mapName}.json`);
+            this.scene.start('Menu');
+            return;
+        }
+
         const map = this.createMap();
+
+        // A map without a player spawn can't be played yet, so go back to the menu
+        if (this.objectsOfClass(map, 'player').length === 0) {
+            console.error(`No player spawn in ${this.mapName}`);
+            this.scene.start('Menu');
+            return;
+        }
+
         this.createPlayer(map);
         this.createLights(map);
         this.createObjects(map);
@@ -195,10 +210,10 @@ export class Level extends Phaser.Scene {
         if (allKeysCollected(this.keyItems)) {
             goal.disableBody(true, true); // prevent multiple triggers
 
-            // Go to the next level in LEVELS, or the Win screen after the last one.
+            // Go to the next available level in LEVELS, or the Win screen if there isn't one.
             // Stopping this level also stops the HUD; the next level relaunches it.
             const index = LEVELS.findIndex(level => level.key === this.scene.key);
-            const next = LEVELS[index + 1];
+            const next = LEVELS.slice(index + 1).find(level => isLevelAvailable(this, level));
             this.scene.start(next ? next.key : 'Win');
         } else {
             // TODO: indicate that the key needs to be collected first
