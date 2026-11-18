@@ -1,7 +1,7 @@
-import { LEVELS } from '../levels.js';
-import { newRun } from '../run.js';
+import { LEVELS, isLevelUnlocked } from '../levels.js';
 
-// Level select. Left/right (or A/D) picks a level, Enter or Space starts a new run there.
+// Level select. Left/right (or A/D) picks an unlocked level, Enter or Space starts it.
+// Locked levels are dimmed.
 export class Menu extends Phaser.Scene {
     constructor() {
         super('Menu');
@@ -20,6 +20,9 @@ export class Menu extends Phaser.Scene {
             const label = level.name.replace(' ', '\n');
             const text = this.add.text(x, y, label, { fontSize: '14px', fill: '#FFF', align: 'center' });
             text.setOrigin(0.5);
+            if (!isLevelUnlocked(this.registry, i)) {
+                text.setAlpha(0.3);
+            }
             return text;
         });
 
@@ -40,7 +43,6 @@ export class Menu extends Phaser.Scene {
         // so it only counts a fresh press
         const startLevel = (event) => {
             if (!event.repeat) {
-                newRun(this.registry); // fresh run: gems, lives etc. back to their defaults
                 this.scene.start(LEVELS[this.registry.get('levelSelect')].key);
             }
         };
@@ -62,10 +64,12 @@ export class Menu extends Phaser.Scene {
         const left  = Phaser.Input.Keyboard.JustDown(this.cursors.left)  || Phaser.Input.Keyboard.JustDown(this.keys.A);
         const right = Phaser.Input.Keyboard.JustDown(this.cursors.right) || Phaser.Input.Keyboard.JustDown(this.keys.D);
 
-        // Change selected level
-        if (left && this.registry.get('levelSelect') > 0) {
+        // Change selected level. Unlocked levels are always in a row from Level 1,
+        // so moving right just stops at the first locked one.
+        const select = this.registry.get('levelSelect');
+        if (left && select > 0) {
             this.registry.inc('levelSelect', -1);
-        } else if (right && this.registry.get('levelSelect') < LEVELS.length - 1) {
+        } else if (right && select < LEVELS.length - 1 && isLevelUnlocked(this.registry, select + 1)) {
             this.registry.inc('levelSelect', 1);
         }
     }

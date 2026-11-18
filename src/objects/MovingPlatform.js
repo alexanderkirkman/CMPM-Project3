@@ -1,4 +1,4 @@
-import { TileObject, getProp } from './TileObject.js';
+import { TileObject, applyRotationAndFlip, getProp } from './TileObject.js';
 import { PLATFORM_SPEED } from '../config.js';
 
 // A moving platform from Tiled (a tile object with the class "moving-platform").
@@ -19,6 +19,7 @@ export class MovingPlatform extends TileObject {
         this.extraTiles = [];
         for (let i = 1; i < widthTiles; i++) {
             const tile = scene.add.image(this.x + i * this.width, this.y, this.texture.key, this.frame.name);
+            applyRotationAndFlip(tile, obj);
             this.extraTiles.push(tile.setPipeline('PixelLight'));
         }
 

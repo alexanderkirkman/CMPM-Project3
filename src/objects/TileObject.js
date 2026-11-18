@@ -8,6 +8,7 @@ export class TileObject extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);
         scene.physics.add.existing(this);
 
+        applyRotationAndFlip(this, obj);
         this.setPipeline('PixelLight');
         this.body.setAllowGravity(false);
         this.setImmovable(true);
@@ -20,13 +21,28 @@ export class TileObject extends Phaser.Physics.Arcade.Sprite {
 export function tileInfo(map, obj) {
     // Find which tileset the gid belongs to, to get the right spritesheet + frame
     const tileset = map.tilesets.find(ts => ts.containsTileIndex(obj.gid));
+
+    // Tiled positions tile objects by their BOTTOM-left corner and rotates them around
+    // that corner; Phaser sprites use their center. So turn the corner-to-center offset
+    // by the object's rotation to find where the center ends up.
+    const angle = Phaser.Math.DegToRad(obj.rotation ?? 0);
+    const halfW = obj.width / 2;
+    const halfH = obj.height / 2;
     return {
-        // Tiled positions tile objects by their BOTTOM-left corner; Phaser sprites by center
-        x: obj.x + obj.width / 2,
-        y: obj.y - obj.height / 2,
+        x: obj.x + halfW * Math.cos(angle) + halfH * Math.sin(angle),
+        y: obj.y + halfW * Math.sin(angle) - halfH * Math.cos(angle),
         key: tileset.image.key,
         frame: obj.gid - tileset.firstgid,
     };
+}
+
+// Makes a sprite match the object's rotation and flips in Tiled.
+// Tiled stores flips in the top bits of the gid. Phaser already took them out of obj.gid
+// when it loaded the map and saved them as obj.flippedHorizontal / obj.flippedVertical.
+export function applyRotationAndFlip(sprite, obj) {
+    sprite.setAngle(obj.rotation ?? 0);
+    sprite.setFlipX(obj.flippedHorizontal);
+    sprite.setFlipY(obj.flippedVertical);
 }
 
 // Tiled stores custom properties as [{ name, type, value }, ...]

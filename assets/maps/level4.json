@@ -117,47 +117,47 @@
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 20, 20, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 20, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 20, 0, 0, 20, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 20, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 20, 20, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 20, 0, 0, 0, 0, 0,
+            0, 0, 0, 20, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0,
+            0, 0, 0, 20, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 20, 0, 0, 0,
+            0, 0, 0, 20, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 20, 0, 20, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 20, 20, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 20, 0, 20, 0, 0, 0, 0, 0,
+            0, 0, 20, 20, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 20, 0, 0, 0, 0, 0,
+            0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 19, 0, 0, 0,
+            0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0,
+            0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 39, 0, 0, 0, 19, 17, 0, 0, 0, 0, 18, 39, 0, 0, 0, 17, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":45,
@@ -602,10 +602,10 @@
                  "y":144
                 }, 
                 {
-                 "gid":109,
+                 "gid":40,
                  "height":16,
-                 "id":89,
-                 "name":"fruit",
+                 "id":83,
+                 "name":"berry",
                  "opacity":1,
                  "properties":[
                         {
@@ -616,31 +616,931 @@
                         {
                          "name":"effect",
                          "type":"string",
-                         "value":"pulse"
+                         "value":"flicker"
                         }, 
                         {
                          "name":"radius",
                          "type":"int",
-                         "value":75
+                         "value":40
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":112,
+                 "y":112
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":84,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
                         }],
                  "rotation":0,
                  "type":"light",
                  "visible":true,
                  "width":16,
                  "x":48,
+                 "y":80
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":85,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":96
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":86,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":208,
+                 "y":304
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":87,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":224,
+                 "y":336
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":88,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":400
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":89,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":272,
+                 "y":480
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":90,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":576
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":91,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":656
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":92,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":224,
+                 "y":672
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":93,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":224,
+                 "y":624
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":94,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":192,
+                 "y":608
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":95,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":672
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":96,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":592
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":97,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":48,
+                 "y":640
+                },
+            
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":98,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":32,
+                 "y":608
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":99,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":32,
+                 "y":512
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":100,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":480
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":101,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":352
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":102,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":48,
+                 "y":352
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":103,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":32,
+                 "y":288
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":104,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":256
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":105,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":288
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":106,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":40
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":176,
+                 "y":160
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":107,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":40
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":192,
+                 "y":144
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":108,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":40
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":208,
                  "y":176
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":109,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":272,
+                 "y":176
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":110,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":128,
+                 "y":448
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":111,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":416
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":112,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":160,
+                 "y":416
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":113,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":192,
+                 "y":480
+                }, 
+                {
+                 "gid":40,
+                 "height":16,
+                 "id":114,
+                 "name":"berry",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff40ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"flicker"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":60
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":224,
+                 "y":432
                 }, 
                 {
                  "gid":109,
                  "height":16,
-                 "id":90,
+                 "id":115,
                  "name":"fruit",
                  "opacity":1,
                  "properties":[
                         {
                          "name":"color",
                          "type":"color",
-                         "value":"#ff942192"
+                         "value":"#ffff2600"
                         }, 
                         {
                          "name":"effect",
@@ -657,19 +1557,48 @@
                  "visible":true,
                  "width":16,
                  "x":80,
-                 "y":192
+                 "y":176
                 }, 
                 {
                  "gid":109,
                  "height":16,
-                 "id":91,
+                 "id":116,
                  "name":"fruit",
                  "opacity":1,
                  "properties":[
                         {
                          "name":"color",
                          "type":"color",
-                         "value":"#ff942192"
+                         "value":"#ffff2600"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":75
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":208
+                }, 
+                {
+                 "gid":109,
+                 "height":16,
+                 "id":117,
+                 "name":"fruit",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffff2600"
                         }, 
                         {
                          "name":"effect",
@@ -686,48 +1615,20 @@
                  "visible":true,
                  "width":16,
                  "x":48,
-                 "y":208
-                }, 
+                 "y":192
+                },
+            
                 {
                  "gid":109,
                  "height":16,
-                 "id":92,
+                 "id":118,
                  "name":"fruit",
                  "opacity":1,
                  "properties":[
                         {
                          "name":"color",
                          "type":"color",
-                         "value":"#ffff40ff"
-                        }, 
-                        {
-                         "name":"effect",
-                         "type":"string",
-                         "value":"pulse"
-                        }, 
-                        {
-                         "name":"radius",
-                         "type":"int",
-                         "value":75
-                        }],
-                 "rotation":0,
-                 "type":"light",
-                 "visible":true,
-                 "width":16,
-                 "x":64,
-                 "y":480
-                }, 
-                {
-                 "gid":109,
-                 "height":16,
-                 "id":93,
-                 "name":"fruit",
-                 "opacity":1,
-                 "properties":[
-                        {
-                         "name":"color",
-                         "type":"color",
-                         "value":"#ff00fdff"
+                         "value":"#ff0433ff"
                         }, 
                         {
                          "name":"effect",
@@ -744,12 +1645,12 @@
                  "visible":true,
                  "width":16,
                  "x":224,
-                 "y":256
+                 "y":224
                 }, 
                 {
                  "gid":109,
                  "height":16,
-                 "id":94,
+                 "id":119,
                  "name":"fruit",
                  "opacity":1,
                  "properties":[
@@ -773,7 +1674,471 @@
                  "visible":true,
                  "width":16,
                  "x":256,
-                 "y":224
+                 "y":240
+                }, 
+                {
+                 "gid":109,
+                 "height":16,
+                 "id":120,
+                 "name":"fruit",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff0433ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":75
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":224,
+                 "y":256
+                }, 
+                {
+                 "gid":54,
+                 "height":16,
+                 "id":121,
+                 "name":"shrub",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff942192"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":35
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":272,
+                 "y":688
+                }, 
+                {
+                 "gid":55,
+                 "height":16,
+                 "id":123,
+                 "name":"mushroom",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff0433ff"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":688
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":124,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":90,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":304
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":125,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":90,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":304
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":126,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":270,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":64,
+                 "y":384
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":128,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":90,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":512
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":129,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":90,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":608
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":130,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":270,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":64,
+                 "y":544
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":131,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":270,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":64,
+                 "y":432
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":133,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":270,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":240,
+                 "y":496
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":134,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":90,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":416
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":136,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":90,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":576
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":137,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":90,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":576
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":140,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":270,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":240,
+                 "y":640
+                }, 
+                {
+                 "gid":38,
+                 "height":16,
+                 "id":141,
+                 "name":"leaf",
+                 "opacity":1,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ff00f900"
+                        }, 
+                        {
+                         "name":"effect",
+                         "type":"string",
+                         "value":"pulse"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":25
+                        }],
+                 "rotation":90,
+                 "type":"light",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":272
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -806,7 +2171,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":95,
+ "nextobjectid":142,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.12.2",

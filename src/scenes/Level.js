@@ -46,11 +46,27 @@ export class Level extends Phaser.Scene {
     }
 
     create() {
-        // If the map file didn't load, go back to the menu instead of crashing
+        // True if the player got here by finishing the level before this one
+        const cameFromGoal = this.registry.get('cameFromGoal');
+        this.registry.set('cameFromGoal', false);
+
         if (!this.cache.tilemap.exists(this.mapName)) {
+            // No map after finishing a level means that was the last real level: they won
+            if (cameFromGoal) {
+                this.scene.start('Win');
+                return;
+            }
+            // Otherwise go back to the menu instead of crashing
             console.error(`Missing map file: assets/maps/${this.mapName}.json`);
             this.scene.start('Menu');
             return;
+        }
+
+        // Finishing the last level unlocked this one, now that we know its map exists.
+        // (Replaying an old level must not lower the highest unlocked level.)
+        if (cameFromGoal) {
+            const index = LEVELS.findIndex(level => level.key === this.scene.key);
+            this.registry.set('unlockedLevel', Math.max(this.registry.get('unlockedLevel'), index));
         }
 
         const map = this.createMap();
@@ -69,6 +85,7 @@ export class Level extends Phaser.Scene {
         // Gems when this attempt started, put back if the player dies
         this.startGems = this.registry.get('gems');
         this.dead = false;
+        this.finished = false;
 
         // The HUD scene draws on top and reads values from the registry
         this.scene.launch('HUD');
@@ -175,7 +192,7 @@ export class Level extends Phaser.Scene {
 
     setupControls() {
         this.cursors = this.input.keyboard.createCursorKeys();
-        this.keys = this.input.keyboard.addKeys('W,A,S,D,SPACE');
+        this.keys = this.input.keyboard.addKeys('W,A,S,D,SPACE,ESC');
     }
 
     // Called by a Torch when the player lights it
@@ -209,11 +226,14 @@ export class Level extends Phaser.Scene {
     onGoalContact(goal) {
         if (allKeysCollected(this.keyItems)) {
             goal.disableBody(true, true); // prevent multiple triggers
+            this.finished = true;
 
             // Go to the next available level in LEVELS, or the Win screen if there isn't one.
+            // The next level unlocks itself in create(), or goes to Win if it has no map.
             // Stopping this level also stops the HUD; the next level relaunches it.
             const index = LEVELS.findIndex(level => level.key === this.scene.key);
             const next = LEVELS.slice(index + 1).find(level => isLevelAvailable(this, level));
+            this.registry.set('cameFromGoal', Boolean(next));
             this.scene.start(next ? next.key : 'Win');
         } else {
             // TODO: indicate that the key needs to be collected first
@@ -222,6 +242,16 @@ export class Level extends Phaser.Scene {
     }
 
     update(time) {
+        // Esc pauses, but not if we're already leaving this level. Pausing also makes Phaser
+        // release this scene's keys, so none stay held. originalEvent.repeat ignores an Esc
+        // that's still held down from closing the pause menu.
+        const esc = this.keys.ESC;
+        if (Phaser.Input.Keyboard.JustDown(esc) && !esc.originalEvent.repeat && !this.dead && !this.finished) {
+            this.scene.pause();
+            this.scene.launch('Pause', { levelKey: this.scene.key });
+            return;
+        }
+
         // Lights: glow follows the player and gently breathes; level lights flicker/pulse
         const breath = Math.sin((time / 1000) * (Math.PI * 2 / PLAYER_PULSE.seconds));   // -1..1
         this.playerGlow.setPosition(this.player.x, this.player.y);

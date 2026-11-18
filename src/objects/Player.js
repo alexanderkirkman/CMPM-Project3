@@ -30,9 +30,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     update(time, cursors, keys) {
         const left  = cursors.left.isDown  || keys.A.isDown;
         const right = cursors.right.isDown || keys.D.isDown;
+        // originalEvent.repeat ignores a Space still held down from confirming a menu
         const jump  = Phaser.Input.Keyboard.JustDown(cursors.up)
                    || Phaser.Input.Keyboard.JustDown(keys.W)
-                   || Phaser.Input.Keyboard.JustDown(keys.SPACE);
+                   || (Phaser.Input.Keyboard.JustDown(keys.SPACE) && !keys.SPACE.originalEvent.repeat);
         const down  = cursors.down.isDown || keys.S.isDown;
 
         // Holding down while standing starts a short drop through one-way platforms
