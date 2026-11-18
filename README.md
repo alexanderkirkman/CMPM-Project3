@@ -23,7 +23,7 @@ Levels unlock in order: only Level 1 starts unlocked, and finishing a level unlo
 | # | Name | Made by | Unique mechanic |
 | --- | --- | --- | --- |
 | 1 | LEVEL 1 | Alex | basic torch and key puzzle, with no hazards |
-| 2 | LEVEL 2 | TODO | TODO [guess: bounce pads that launch you upward] |
+| 2 | LEVEL 2 | Liam | bounce pads that launch you upward |
 | 3 | LEVEL 3 | Alex | platforms moving side to side |
 | 4 | LEVEL 4 | Alex | a platform moving up and down |
 | 5 | LEVEL 5 | Alex | a long spike gauntlet |
