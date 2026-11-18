@@ -2,6 +2,46 @@
 
 A vertical 2D platformer made with Phaser 3.90. You climb a dark tower where the only light comes from torches, glowing plants, and a small glow around the player. Levels are built in Tiled.
 
+## For graders
+
+### Picking a level
+
+Levels unlock in order: only Level 1 starts unlocked, and finishing a level unlocks the next one. To pick any level that has a map right away, set `DEV_UNLOCK_ALL` to `true` at the top of `src/config.js` and reload. In the menu, Left/Right or A/D chooses a level and Enter or Space starts it.
+
+### Controls
+
+| Action | Keys |
+| --- | --- |
+| Move | Left/Right arrows or A/D |
+| Jump | Up arrow, W, or Space |
+| Wall jump | Jump while touching a wall in the air |
+| Drop through a platform | Down arrow or S while standing on it |
+| Pause | Esc |
+
+### Levels
+
+| # | Name | Made by | Unique mechanic |
+| --- | --- | --- | --- |
+| 1 | LEVEL 1 | TODO | TODO [guess: the basic torch and key puzzle, with no hazards] |
+| 2 | LEVEL 2 | TODO | TODO [guess: bounce pads that launch you upward] |
+| 3 | LEVEL 3 | TODO | TODO [guess: platforms moving side to side] |
+| 4 | LEVEL 4 | TODO | TODO [guess: a platform moving up and down] |
+| 5 | LEVEL 5 | TODO | TODO [guess: a long spike gauntlet] |
+| 6 | LEVEL 6 | TODO | TODO [guess: spikes combined with horizontal and vertical moving platforms] |
+
+### Bonus features
+
+| Feature | Where to see it | Rubric line |
+| --- | --- | --- |
+| Wall jumping and wall sliding | Any level: hold toward a wall in the air, then jump | Double jumping and wall jumping (1 point) |
+| Camera deadzone | Any level: small moves near the middle of the screen don't move the camera | Complex camera: camera deadzone (0.5 points) |
+| Spikes with a lives system | Levels 2, 5 and 6: you have 5 lives, dying restarts the level, and 0 lives is Game Over | Ways for player to die, with a health/lives mechanic (up to 1 point) |
+| Torch/key puzzle | Every level: light every torch to get the key, and the goal needs the key | Puzzles: lock and key (1 point) |
+| Moving platforms | Levels 3, 4 and 6: you can jump onto them and they carry you along | Moving platforms the player can jump onto and not slide along (1.5 points) |
+| Key appears after the torches are lit | Every level: the key stays hidden until the last torch is lit | Dynamic level elements: things appear or disappear based on a trigger (1 point) |
+| Sound effects and particles | Jumping, landing, lighting torches, and collecting gems or keys | Juicy juice: particle and sound feedback beyond the required juice (up to 2 points) |
+| Bounce pads | Level 2 | Interactive items, e.g. bounce pads (up to 2 points) |
+
 ## Running it
 
 There's no build step and nothing to install. Phaser is already in the repo as `phaser.js`.
@@ -45,6 +85,7 @@ src/scenes/Menu.js          level select menu; locked levels are dimmed
 src/scenes/Level.js         base level scene: loads the map, player, lights, objects, camera, controls
 src/scenes/Level1.js        level 1 (just picks its map; add level-specific stuff here)
 src/scenes/Level2.js        level 2
+src/scenes/Level3.js to Level6.js   levels 3 to 6
 src/scenes/HUD.js           gem and lives counters drawn on top of the level
 src/scenes/Win.js           shown after the last level that has a map, with the gem total
 src/scenes/GameOver.js      shown when you run out of lives
@@ -80,7 +121,7 @@ To add or swap a sound: copy an .ogg from one of the audio packs into `assets/au
 
 To add or swap a particle image: copy a .png from `kenney_particle-pack/PNG (Transparent)/` into `assets/particles/`. Then add or change its `this.load.image(...)` line in `preload()` in `src/scenes/Level.js`, and use that key in `add.particles(...)`. The images are 512px, so particles need a small scale (around 0.02 to 0.08).
 
-To add a level: make its map, `assets/maps/levelN.json`. Levels 1 to 10 are already on the menu. Only add a `LevelN.js` class if the level needs its own code (copy `Level2.js`, change the names, and add the class to `levelClasses` in `src/main.js`).
+To add a level: make its map, `assets/maps/levelN.json`, and add one line for it to `LEVELS` in `src/levels.js`. It then shows up on the menu. Then give it its own `LevelN.js` class like the other finished levels (copy `Level2.js`, change the names, and add the class to `levelClasses` in `src/main.js`).
 
 ## Editing levels in Tiled
 
@@ -103,7 +144,7 @@ Layers, in draw order:
 - `foreground`: drawn in front of the player.
 - `triggers` (object layer): the goal, key, and gems. The code finds objects by their Class (`gem`, `key`, `goal`, `spike`, `moving-platform`, `torch`...) on any object layer, so layer names are just for keeping the map organized.
 - `lights` (object layer): every light source in the level. See below.
-- `spawns` (object layer): a point with the Class `player` where the player starts. The game crashes without it.
+- `spawns` (object layer): a point with the Class `player` where the player starts. Without it, the game logs an error and returns to the menu.
 
 Moving platforms are tile objects with the Class `moving-platform`. Their custom properties are `move-x` and `move-y` (how far they move from where they were placed, in pixels), `speed` (pixels per second, default `PLATFORM_SPEED` in config.js) and `width-tiles` (how many tiles wide, default 1). They're one-way like the `platforms` layer.
 
@@ -141,7 +182,7 @@ Constants are at the top of each file with comments:
 
 ## Troubleshooting
 
-- **Black screen.** Make sure you're on a local server and not `file://`. Then open the browser console. A missing or renamed layer, a missing `player` spawn, or a non-embedded tileset will all throw an error there.
+- **Black screen.** Make sure you're on a local server and not `file://`. Then open the browser console. A missing or renamed layer or a non-embedded tileset will throw an error there. (A missing `player` spawn doesn't cause a black screen: the game logs an error and returns to the menu.)
 - **Map changes not showing up.** Export to `level1.json` again, then hard refresh (browsers like to cache the json).
 - **Something is too bright.** Either it's missing `setPipeline('PixelLight')`, or a bunch of lights overlap. Light adds up, so several lights close together will wash out. Lower `intensity` or `radius` on them.
 - **Lights popping on and off while scrolling.** `maxLights` in `main.js` is 64. That's the cap on lights visible at once (counting the player's glow). If an area goes over it, some lights get dropped. Spread them out or raise the cap.

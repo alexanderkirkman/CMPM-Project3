@@ -1,7 +1,7 @@
 // Tuning numbers for the game, grouped by what they affect.
 
 // ---- Testing ----
-export const DEV_UNLOCK_ALL = true;   // true = every level is unlocked and selectable in the menu
+export const DEV_UNLOCK_ALL = true;   // true = every level that has a map is selectable in the menu
 
 // ---- Tiles ----
 // Frame numbers in the tilesheet. In Tiled, click a tile in the Tilesets panel; the "ID"

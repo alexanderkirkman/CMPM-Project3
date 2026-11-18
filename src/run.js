@@ -2,7 +2,7 @@
 // They live in the game registry, so every scene can read them. Nothing is saved to
 // disk, so reloading the page starts over.
 // To add one (like a power-up), give it a starting value here.
-export const RUN_DEFAULTS = {
+const RUN_DEFAULTS = {
     gems: 0,
     lives: 5,
 };

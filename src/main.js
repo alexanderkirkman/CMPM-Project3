@@ -2,6 +2,10 @@ import { Menu } from './scenes/Menu.js';
 import { Level } from './scenes/Level.js';
 import { Level1 } from './scenes/Level1.js';
 import { Level2 } from './scenes/Level2.js';
+import { Level3 } from './scenes/Level3.js';
+import { Level4 } from './scenes/Level4.js';
+import { Level5 } from './scenes/Level5.js';
+import { Level6 } from './scenes/Level6.js';
 import { HUD } from './scenes/HUD.js';
 import { Win } from './scenes/Win.js';
 import { GameOver } from './scenes/GameOver.js';
@@ -10,15 +14,15 @@ import { PixelLightPipeline } from './pipelines/PixelLightPipeline.js';
 import { LEVELS } from './levels.js';
 import { newRun } from './run.js';
 
-// Levels that have their own class. Every other level is a plain Level scene.
-const levelClasses = { Level1, Level2 };
+// Levels that have their own class. Any other level in levels.js is a plain Level scene.
+const levelClasses = { Level1, Level2, Level3, Level4, Level5, Level6 };
 
 const levelScenes = LEVELS.map(level => {
     const LevelClass = levelClasses[level.key];
     if (LevelClass) {
         return new LevelClass();
     }
-    return new Level(level.key, level.key.toLowerCase());   // Level3 uses level3.json
+    return new Level(level.key, level.key.toLowerCase());   // Level7 uses level7.json
 });
 
 const config = {

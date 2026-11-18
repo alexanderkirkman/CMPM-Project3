@@ -9,7 +9,7 @@ import { Spike } from '../objects/Spike.js';
 import { BouncePad } from '../objects/BouncePad.js';
 import { MovingPlatform } from '../objects/MovingPlatform.js';
 import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE, SOUNDS } from '../config.js';
-import { LEVELS, isLevelAvailable } from '../levels.js';
+import { LEVELS } from '../levels.js';
 
 // Base scene for every level. Subclasses (Level1, Level2...) just pass in their scene key
 // and map name; they can override create()/update() to add their own mechanics.
@@ -161,13 +161,12 @@ export class Level extends Phaser.Scene {
         const make = (cls, ObjectClass) => this.objectsOfClass(map, cls)
             .map(obj => new ObjectClass(this, map, obj, this.player));
 
-        this.gems = make('gem', Gem);
+        make('gem', Gem);
         this.keyItems = make('key', Key);
-        // A list, so a level could have more than one goal (alternate endings)
-        this.goals = make('goal', Goal);
-        this.spikes = make('spike', Spike);
+        make('goal', Goal);
+        make('spike', Spike);
         this.movingPlatforms = make('moving-platform', MovingPlatform);
-        this.bouncePads = make('bouncePad', BouncePad);
+        make('bouncePad', BouncePad);
     }
 
     // Every Tiled object with this class, on any object layer.
@@ -228,11 +227,11 @@ export class Level extends Phaser.Scene {
             goal.disableBody(true, true); // prevent multiple triggers
             this.finished = true;
 
-            // Go to the next available level in LEVELS, or the Win screen if there isn't one.
+            // Go to the next level in LEVELS, or the Win screen if this was the last one.
             // The next level unlocks itself in create(), or goes to Win if it has no map.
             // Stopping this level also stops the HUD; the next level relaunches it.
             const index = LEVELS.findIndex(level => level.key === this.scene.key);
-            const next = LEVELS.slice(index + 1).find(level => isLevelAvailable(this, level));
+            const next = LEVELS[index + 1];
             this.registry.set('cameFromGoal', Boolean(next));
             this.scene.start(next ? next.key : 'Win');
         } else {
