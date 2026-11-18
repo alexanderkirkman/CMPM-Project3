@@ -6,6 +6,7 @@ import { Gem } from '../objects/Gem.js';
 import { Key, revealAllKeys, allKeysCollected } from '../objects/Key.js';
 import { Goal } from '../objects/Goal.js';
 import { Spike } from '../objects/Spike.js';
+import { BouncePad } from '../objects/BouncePad.js';
 import { MovingPlatform } from '../objects/MovingPlatform.js';
 import { AMBIENT_COLOR, PLAYER_GLOW, PLAYER_PULSE, CAMERA_DEADZONE, SOUNDS } from '../config.js';
 import { LEVELS } from '../levels.js';
